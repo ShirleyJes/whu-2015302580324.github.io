@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一些关于jdbc封装的知识以及jdbc的一些基本方法和实现步骤">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JDBC">
+<meta property="og:url" content="ztzhang.cn/2018/07/27/JDBC/index.html">
+<meta property="og:site_name" content="KingSoul&#39;s Garden">
+<meta property="og:description" content="一些关于jdbc封装的知识以及jdbc的一些基本方法和实现步骤">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-27T03:18:50.508Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JDBC">
+<meta name="twitter:description" content="一些关于jdbc封装的知识以及jdbc的一些基本方法和实现步骤">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="ztzhang.cn/2018/07/27/JDBC/"/>
+
+
+
+
+
+  <title>JDBC | KingSoul's Garden</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">KingSoul's Garden</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="ztzhang.cn/2018/07/27/JDBC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KingSoul">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KingSoul's Garden">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JDBC</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-27T09:12:00+08:00">
+                2018-07-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  564
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>一些关于jdbc封装的知识以及jdbc的一些基本方法和实现步骤<br><a id="more"></a></p>
+<h3 id="DBUtils-java"><a href="#DBUtils-java" class="headerlink" title="DBUtils.java"></a>DBUtils.java</h3><h4 id="getConnection-的封装："><a href="#getConnection-的封装：" class="headerlink" title="getConnection()的封装："></a>getConnection()的封装：</h4><pre><code>线程实现系统只有一个connection--------ThreadLocal
+conn=DriverManager.getConnection(url, username,password);
+</code></pre><h4 id="事务开启的封装（）："><a href="#事务开启的封装（）：" class="headerlink" title="事务开启的封装（）："></a>事务开启的封装（）：</h4><pre><code>getConnection().setAutoCommit(false);
+</code></pre><h4 id="事务提交的封装（）："><a href="#事务提交的封装（）：" class="headerlink" title="事务提交的封装（）："></a>事务提交的封装（）：</h4><pre><code>getConnection().commit();
+</code></pre><h4 id="事务的回滚："><a href="#事务的回滚：" class="headerlink" title="事务的回滚："></a>事务的回滚：</h4><pre><code>getConnection().rollback();
+</code></pre><h4 id="事务的结束"><a href="#事务的结束" class="headerlink" title="事务的结束"></a>事务的结束</h4><pre><code>getConnection().setAutoCommit(True);
+</code></pre><h4 id="SQL语句的编译的封装："><a href="#SQL语句的编译的封装：" class="headerlink" title="SQL语句的编译的封装："></a>SQL语句的编译的封装：</h4><pre><code>getConnection().prepareStatement(sql);
+</code></pre><h4 id="资源销毁的封装："><a href="#资源销毁的封装：" class="headerlink" title="资源销毁的封装："></a>资源销毁的封装：</h4><pre><code>ResultSet.close()
+PrepareStatement.close();
+Connection.close();
+</code></pre><h3 id="PstmBean-java"><a href="#PstmBean-java" class="headerlink" title="PstmBean.java:"></a>PstmBean.java:</h3><h4 id="用于PreparedStatement语句的封装："><a href="#用于PreparedStatement语句的封装：" class="headerlink" title="用于PreparedStatement语句的封装："></a>用于PreparedStatement语句的封装：</h4><pre><code>PreparedStatement.executeUpdate();单条SQL语句的执行
+PreparedStatement.executeBatch();批量处理SQL语句
+PreparedStatement.close();
+</code></pre><h3 id="PersonServicesSupport-java用于person表的jdbc处理封装"><a href="#PersonServicesSupport-java用于person表的jdbc处理封装" class="headerlink" title="PersonServicesSupport.java用于person表的jdbc处理封装"></a>PersonServicesSupport.java用于person表的jdbc处理封装</h3><h3 id="Preparedstatement操作流程："><a href="#Preparedstatement操作流程：" class="headerlink" title="Preparedstatement操作流程："></a>Preparedstatement操作流程：</h3><pre><code>//1--SQL语句的编译
+//SQL语句类似于
+//select name,age,gender 
+//  From  person
+// Where id=?
+PreparedStatement pstm=Connection.preparedStatement(sql);
+//2—-对SQL语句中的”?”进行赋值(两种执行方式，批量处理与非批量处理)
+//2.1非批量处理
+Pstm.setObject(index,value);
+    //2.2批量处理
+    For(循环)
+{
+    Pstm.setObject(index,value);
+        Pstm.addBatch();
+}
+
+//3—执行SQL语句(两种执行方式，批量处理与非批量处理)
+//3.1非批量处理
+Pstm.excuteUpdate();
+    //3.2批量处理
+        Pstm.excuteBatch();
+        Connection.commit();
+</code></pre><h3 id="抽象类与接口"><a href="#抽象类与接口" class="headerlink" title="抽象类与接口"></a>抽象类与接口</h3><h4 id="接口："><a href="#接口：" class="headerlink" title="接口："></a>接口：</h4><pre><code>一般用于声明方法，其中有些方法子类不用实现的可以使用default关键字实现子类的默认实现，即接口一般是抽象方法的集合；
+</code></pre><h4 id="抽象类："><a href="#抽象类：" class="headerlink" title="抽象类："></a>抽象类：</h4><pre><code>不用实例化对象，只用于子类实现的细节的类；它可以存在属性，方法一般声明为protect final
+</code></pre><h3 id="数据的传递交换"><a href="#数据的传递交换" class="headerlink" title="数据的传递交换"></a>数据的传递交换</h3><h4 id="Web应用的数据的流动过程："><a href="#Web应用的数据的流动过程：" class="headerlink" title="Web应用的数据的流动过程："></a>Web应用的数据的流动过程：</h4><pre><code>从jsp页面中通过request传递给servlet，得到数据request.getParameterMap()）解析为HashMap(String,Object)类型的DTO，之后调用service中的SQL语句，之后在servlet中将SQL结果通过request.SetAttibute()传递给页面，页面通过EL语言解析显示数据到页面；
+</code></pre><h3 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h3><pre><code>从网页中利用getParameterMap()获得Map&lt;String,String[]&gt;的类型的数据，将其解析为Map&lt;String,String&gt;类型的dto对象
+</code></pre><h4 id="Servlet的封装"><a href="#Servlet的封装" class="headerlink" title="Servlet的封装"></a>Servlet的封装</h4><pre><code>接口：规定子类要实现的方法
+抽象类：对接口的方法实现过程的细化，留给具体类使用
+具体类：抽象类（父类）的方法的调用
+</code></pre><h3 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h3><pre><code>获得从servlet中的解析得到的dto对象。对sql语句的参数赋值 
+</code></pre>
+      
+    </div>
+    
+    
+    
+    
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/07/27/JDBC/">JDBC</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 KingSoul 的个人博客">KingSoul</a></p>
+  <p><span>发布时间:</span>2018年07月27日 - 09:07</p>
+  <p><span>最后更新:</span>2018年07月27日 - 11:07</p>
+  <p><span>原始链接:</span><a href="/2018/07/27/JDBC/" title="JDBC">ztzhang.cn/2018/07/27/JDBC/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="ztzhang.cn/2018/07/27/JDBC/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+
+      
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/26/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/27/Spring/" rel="prev" title="Spring">
+                Spring <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="KingSoul" />
+            
+              <p class="site-author-name" itemprop="name">KingSoul</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#DBUtils-java"><span class="nav-number">1.</span> <span class="nav-text">DBUtils.java</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#getConnection-的封装："><span class="nav-number">1.1.</span> <span class="nav-text">getConnection()的封装：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事务开启的封装（）："><span class="nav-number">1.2.</span> <span class="nav-text">事务开启的封装（）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事务提交的封装（）："><span class="nav-number">1.3.</span> <span class="nav-text">事务提交的封装（）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事务的回滚："><span class="nav-number">1.4.</span> <span class="nav-text">事务的回滚：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事务的结束"><span class="nav-number">1.5.</span> <span class="nav-text">事务的结束</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL语句的编译的封装："><span class="nav-number">1.6.</span> <span class="nav-text">SQL语句的编译的封装：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#资源销毁的封装："><span class="nav-number">1.7.</span> <span class="nav-text">资源销毁的封装：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PstmBean-java"><span class="nav-number">2.</span> <span class="nav-text">PstmBean.java:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#用于PreparedStatement语句的封装："><span class="nav-number">2.1.</span> <span class="nav-text">用于PreparedStatement语句的封装：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PersonServicesSupport-java用于person表的jdbc处理封装"><span class="nav-number">3.</span> <span class="nav-text">PersonServicesSupport.java用于person表的jdbc处理封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Preparedstatement操作流程："><span class="nav-number">4.</span> <span class="nav-text">Preparedstatement操作流程：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类与接口"><span class="nav-number">5.</span> <span class="nav-text">抽象类与接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#接口："><span class="nav-number">5.1.</span> <span class="nav-text">接口：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象类："><span class="nav-number">5.2.</span> <span class="nav-text">抽象类：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据的传递交换"><span class="nav-number">6.</span> <span class="nav-text">数据的传递交换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Web应用的数据的流动过程："><span class="nav-number">6.1.</span> <span class="nav-text">Web应用的数据的流动过程：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet"><span class="nav-number">7.</span> <span class="nav-text">Servlet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Servlet的封装"><span class="nav-number">7.1.</span> <span class="nav-text">Servlet的封装</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Service"><span class="nav-number">8.</span> <span class="nav-text">Service</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">KingSoul</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">1.4k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
