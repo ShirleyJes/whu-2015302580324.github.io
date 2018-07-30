@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="spring是一个开源的JavaEE框架，因它使用面向接口的编程思想贯穿整个系统应用，解决是业务逻辑层和其他各层的松耦合问题，它包括7大模块，Spring Core、Spring Context、Spring AOP、Spring DAO、Spring ORM、Spring Web 、Spring MVC">
+<meta name="description" content="MyBatis 本是apache的一个开源项目iBatis, 2010年这个项目由apache software foundation 迁移到了google code，并且改名为MyBatis 。2013年11月迁移到Github。iBATIS一词来源于“internet”和“abatis”的组合，是一个基于Java的持久层框架。iBATIS提供的持久层框架包括SQL Maps和Data Acce">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring">
-<meta property="og:url" content="ztzhang.cn/2018/07/27/Spring/index.html">
+<meta property="og:title" content="Mybatis">
+<meta property="og:url" content="ztzhang.cn/2018/07/30/Mybatis/index.html">
 <meta property="og:site_name" content="KingSoul&#39;s Garden">
-<meta property="og:description" content="spring是一个开源的JavaEE框架，因它使用面向接口的编程思想贯穿整个系统应用，解决是业务逻辑层和其他各层的松耦合问题，它包括7大模块，Spring Core、Spring Context、Spring AOP、Spring DAO、Spring ORM、Spring Web 、Spring MVC">
+<meta property="og:description" content="MyBatis 本是apache的一个开源项目iBatis, 2010年这个项目由apache software foundation 迁移到了google code，并且改名为MyBatis 。2013年11月迁移到Github。iBATIS一词来源于“internet”和“abatis”的组合，是一个基于Java的持久层框架。iBATIS提供的持久层框架包括SQL Maps和Data Acce">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-27T07:51:36.066Z">
+<meta property="og:image" content="/2018/07/30/Mybatis/架构图1.png">
+<meta property="og:updated_time" content="2018-07-30T07:06:00.197Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring">
-<meta name="twitter:description" content="spring是一个开源的JavaEE框架，因它使用面向接口的编程思想贯穿整个系统应用，解决是业务逻辑层和其他各层的松耦合问题，它包括7大模块，Spring Core、Spring Context、Spring AOP、Spring DAO、Spring ORM、Spring Web 、Spring MVC">
+<meta name="twitter:title" content="Mybatis">
+<meta name="twitter:description" content="MyBatis 本是apache的一个开源项目iBatis, 2010年这个项目由apache software foundation 迁移到了google code，并且改名为MyBatis 。2013年11月迁移到Github。iBATIS一词来源于“internet”和“abatis”的组合，是一个基于Java的持久层框架。iBATIS提供的持久层框架包括SQL Maps和Data Acce">
+<meta name="twitter:image" content="/2018/07/30/Mybatis/架构图1.png">
 
 
 
@@ -119,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="ztzhang.cn/2018/07/27/Spring/"/>
+  <link rel="canonical" href="ztzhang.cn/2018/07/30/Mybatis/"/>
 
 
 
 
 
-  <title>Spring | KingSoul's Garden</title>
+  <title>Mybatis | KingSoul's Garden</title>
   
 
 
@@ -262,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="ztzhang.cn/2018/07/27/Spring/">
+    <link itemprop="mainEntityOfPage" href="ztzhang.cn/2018/07/30/Mybatis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="KingSoul">
@@ -279,7 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spring</h1>
+          <h1 class="post-title" itemprop="name headline">Mybatis</h1>
         
 
         <div class="post-meta">
@@ -291,8 +293,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-27T11:37:25+08:00">
-                2018-07-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-30T09:04:57+08:00">
+                2018-07-30
               </time>
             
 
@@ -323,7 +325,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  397
+                  1,370
                 </span>
               
 
@@ -339,7 +341,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  6
                 </span>
               
             </div>
@@ -360,30 +362,153 @@
       
 
       
-        <p>spring是一个开源的JavaEE框架，因它使用面向接口的编程思想贯穿整个系统应用，解决是业务逻辑层和其他各层的松耦合问题，它包括7大模块，Spring Core、Spring Context、Spring AOP、Spring DAO、Spring ORM、Spring Web 、Spring MVC </p>
-<a id="more"></a>
-<h2 id="Spring容器和bean原理"><a href="#Spring容器和bean原理" class="headerlink" title="Spring容器和bean原理"></a>Spring容器和bean原理</h2><h3 id="传统组件调用方式"><a href="#传统组件调用方式" class="headerlink" title="传统组件调用方式"></a>传统组件调用方式</h3><p>代码之间的依赖性较强，需要一个组件时要new出来该组件的对象</p>
-<pre><code>public class Bussiness{
-    private UserDao=new UserDao();
-    public List getPage(){
-        return this.Dao.query();
-    }
-}
-</code></pre><h3 id="解决方法——–利用IoC（Invention-of-Control-控制反转）解耦"><a href="#解决方法——–利用IoC（Invention-of-Control-控制反转）解耦" class="headerlink" title="解决方法——–利用IoC（Invention of Control,控制反转）解耦"></a>解决方法——–利用IoC（Invention of Control,控制反转）解耦</h3><p>IoC是一种设计原则，常见的方式时依赖注入（DI）。组件不再由应用程序创建，而是由IoC容器负责，容器在实例化对象时，主动地将它所依赖的对象注入给它，应用程序只需直接使用已经创建并配置好的组件即可。spring就是一个IoC容器。</p>
-<h4 id="实例化IoC容器—BeanFactory"><a href="#实例化IoC容器—BeanFactory" class="headerlink" title="实例化IoC容器—BeanFactory"></a>实例化IoC容器—BeanFactory</h4><pre><code>BeanFactory factory=new XMLBeanFactory(new FileInputStream(&quot;beans.xml&quot;));
-</code></pre><h4 id="实例化IoC容器—ApplicationContext-常用"><a href="#实例化IoC容器—ApplicationContext-常用" class="headerlink" title="实例化IoC容器—ApplicationContext (常用)"></a>实例化IoC容器—ApplicationContext (常用)</h4><pre><code>ApplicationContext apc = new ClassPathXmlApplicationContext(&quot;application.xml&quot;);
-</code></pre><h4 id="BeanFactory-与ApplicationContext-区别"><a href="#BeanFactory-与ApplicationContext-区别" class="headerlink" title="BeanFactory 与ApplicationContext 区别"></a>BeanFactory 与ApplicationContext 区别</h4><p>BeanFactory直到第一次使用getBean()获取bean实例时才会创建bean,ApplicationContext 在自身被实例化时就一次完成所有的bean的创建</p>
-<h4 id="Bean的定义"><a href="#Bean的定义" class="headerlink" title="Bean的定义"></a>Bean的定义</h4><pre><code>&lt;bean id=&quot;people&quot; 
-class=&quot;com.soft.ch01.Customer&quot;
-lazy-init=&quot;false&quot;
-init-method=&quot;init&quot;
-destroy-method=&quot;deestroy&quot;
-scope=&quot;prototype&quot;&gt;
-&lt;/bean&gt;
-</code></pre><h4 id="Bean的获取"><a href="#Bean的获取" class="headerlink" title="Bean的获取"></a>Bean的获取</h4><pre><code>apc.getBean(&quot;people&quot;)  ;                 
-</code></pre><h2 id="依赖注入的实现"><a href="#依赖注入的实现" class="headerlink" title="依赖注入的实现"></a>依赖注入的实现</h2><h2 id="面向切面的编程AOP"><a href="#面向切面的编程AOP" class="headerlink" title="面向切面的编程AOP"></a>面向切面的编程AOP</h2><p>切面aspect：就是公共操作的集合类，包含处理前操作，处理后操作；</p>
-<p>切点pointcut：就是需要公共操作的方法集；比如adduser；addbook…..</p>
+        <p>MyBatis 本是apache的一个开源项目iBatis, 2010年这个项目由apache software foundation 迁移到了google code，并且改名为MyBatis 。2013年11月迁移到Github。<br>iBATIS一词来源于“internet”和“abatis”的组合，是一个基于Java的持久层框架。iBATIS提供的持久层框架包括SQL Maps和Data Access Objects（DAOs）。<br>MyBatis 是一款优秀的持久层框架，它支持定制化 SQL、存储过程以及高级映射。MyBatis 避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。<br>MyBatis 可以使用简单的 XML 或注解来配置和映射原生信息，将接口和 Java 的 POJOs(Plain Ordinary Java Object,普通的 Java对象)映射成数据库中的记录。<br><a id="more"></a></p>
+<h2 id="Mybatis框架简介"><a href="#Mybatis框架简介" class="headerlink" title="Mybatis框架简介"></a>Mybatis框架简介</h2><p>Mybatis是一个数据持久层（ORM）框架，把实体类和SQL语句之间建立了映射关系，是一种半自动化的ORM实现。</p>
+<h3 id="传统JDBC操作"><a href="#传统JDBC操作" class="headerlink" title="传统JDBC操作"></a>传统JDBC操作</h3><p>1.加载数据库驱动<br>2.创建并获取数据库链接<br>3.创建jdbc statement对象<br>4.设置sql语句<br>5.设置sql语句中的参数(使用preparedStatement)<br>6.通过statement执行sql并获取结果<br>7.对sql执行结果进行解析处理<br>8.释放资源(resultSet、preparedstatement、connection)</p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><pre><code>import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
+public class JdbcTest {
+    public static void main(String[] args) {
+        //数据库连接
+        Connection connection = null;
+        //预编译的Statement，使用预编译的Statement提高数据库性能
+        PreparedStatement preparedStatement = null;
+        //结果集
+        ResultSet resultSet = null;
+
+        try {
+        //加载数据库驱动
+        Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
+
+        //通过驱动管理类获取数据库链接
+        connection =  DriverManager.getConnection(&quot;jdbc:mysql://120.25.162.238:3306/mybatis001?characterEncoding=utf-8&quot;, &quot;root&quot;, &quot;123&quot;);
+        //定义sql语句 ?表示占位符
+        String sql = &quot;select * from user where username = ?&quot;;
+        //获取预处理statement
+        preparedStatement = connection.prepareStatement(sql);
+        //设置参数，第一个参数为sql语句中参数的序号（从1开始），第二个参数为设置的参数值
+        preparedStatement.setString(1, &quot;王五&quot;);
+        //向数据库发出sql执行查询，查询出结果集
+        resultSet =  preparedStatement.executeQuery();
+        //遍历查询结果集
+        while(resultSet.next()){
+            System.out.println(resultSet.getString(&quot;id&quot;)+&quot;  &quot;+resultSet.getString(&quot;username&quot;));
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }finally{
+        //释放资源
+        if(resultSet!=null){
+            try {
+                resultSet.close();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        if(preparedStatement!=null){
+            try {
+                preparedStatement.close();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        if(connection!=null){
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+}
+}
+</code></pre><h4 id="存在问题—硬编码"><a href="#存在问题—硬编码" class="headerlink" title="存在问题—硬编码"></a>存在问题—硬编码</h4><p>1.数据库连接，使用时就创建，不使用立即释放，对数据库进行频繁连接开启和关闭，造成数据库资源浪费，影响数据库性能。</p>
+<p>设想：使用数据库连接池管理数据库连接。</p>
+<p>2.将sql语句硬编码到java代码中，如果sql语句修改，需要重新编译java代码，不利于系统维护。</p>
+<p>设想：将sql语句配置在xml配置文件中，即使sql变化，不需要对java代码进行重新编译。</p>
+<p>3.向preparedStatement中设置参数，对占位符号位置和设置参数值，硬编码在java代码中，不利于系统维护。</p>
+<p>设想：将sql语句及占位符号和参数全部配置在xml中。</p>
+<p>4.从resutSet中遍历结果集数据时，存在硬编码，将获取表的字段进行硬编码，不利于系统维护。</p>
+<p>设想：将查询的结果集，自动映射成java对象。    </p>
+<h3 id="使用mybatis的改进"><a href="#使用mybatis的改进" class="headerlink" title="使用mybatis的改进"></a>使用mybatis的改进</h3><h4 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h4><img src="/2018/07/30/Mybatis/架构图1.png" title="架构图">
+<pre><code>1.新建全局配置问文件SqlMapConfig.xml，
+    &lt;configuration&gt;
+        &lt;!-- 加载属性文件 --&gt;
+        &lt;properties resource=&quot;db.properties&quot;&gt;
+        &lt;/properties&gt;
+        &lt;!-- 和spring整合后 environments配置将废除--&gt;
+        &lt;environments default=&quot;development&quot;&gt;
+            &lt;environment id=&quot;development&quot;&gt;
+            &lt;!-- 使用jdbc事务管理，事务控制由mybatis--&gt;
+            &lt;transactionManager type=&quot;JDBC&quot; /&gt;
+            &lt;!-- 数据库连接池，由mybatis管理--&gt;
+                &lt;dataSource type=&quot;POOLED&quot;&gt;
+                    &lt;property name=&quot;driver&quot; value=&quot;${jdbc.driver}&quot; /&gt;
+                    &lt;property name=&quot;url&quot; value=&quot;${jdbc.url}&quot; /&gt;
+                    &lt;property name=&quot;username&quot; value=&quot;${jdbc.username}&quot; /&gt;
+                    &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot; /&gt;
+                &lt;/dataSource&gt;
+            &lt;/environment&gt;
+        &lt;/environments&gt;
+        &lt;!-- 加载 映射文件 ,里面可以放多个mapper分别对应不同的xml文件--&gt;
+        &lt;mappers&gt;
+            &lt;mapper resource=&quot;sqlmap/User.xml&quot;/&gt;
+        &lt;/mappers&gt;
+    &lt;/configuration&gt;
+
+2.新建user.xml映射文件，文件名user表示有一个user表，这个user.xml文件就是定义对user表的处理sql语句；比如查询语句
+    &lt;mapper namespace=&quot;test&quot;&gt;
+        &lt;!-- 在 映射文件中配置很多sql语句 --&gt;
+        &lt;!-- 需求：通过id查询用户表的记录 --&gt;
+        &lt;!-- 通过 select执行数据库查询--&gt;
+        &lt;!--id：标识映射文件中的 sql--&gt;
+        &lt;!--将sql语句封装到mappedStatement对象中，所以将id称为statement的id --&gt;
+        &lt;!--parameterType：指定输入 参数的类型，这里指定int型 --&gt;
+        &lt;!--#{}表示一个占位符号 --&gt;
+        &lt;!--#{id}：其中的id表示接收输入 的参数，参数名称就是id，如果输入 参数是简单类型，#{}中的参数名可以任意，可以value或其它名称--&gt;
+        &lt;!--resultType：指定sql输出结果 的所映射的java对象类型，select指定resultType表示将单条记录映射成的java对象。--&gt;
+         --&gt;
+        &lt;select id=&quot;findUserById&quot; parameterType=&quot;int&quot; resultType=&quot;com.neuedu.pojo.User&quot;&gt;
+            SELECT * FROM T_USER WHERE id=#{id}
+        &lt;/select
+    &lt;/mapper&gt;
+
+3.查询的功能代码的实现
+public void findUserByIdTest() throws IOException {
+
+    // mybatis配置文件
+    String resource = &quot;config/SqlMapConfig.xml&quot;;
+    // 得到配置文件流
+    InputStream inputStream = Resources.getResourceAsStream(resource);
+
+    // 创建会话工厂，传入mybatis的配置文件信息
+    SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
+    // 通过工厂得到SqlSession
+    SqlSession sqlSession = sqlSessionFactory.openSession();
+
+    // 通过SqlSession操作数据库
+    // 第一个参数：映射文件中statement的id，等于=namespace+&quot;.&quot;+statement的id
+    // 第二个参数：指定和映射文件中所匹配的parameterType类型的参数
+    // sqlSession.selectOne结果 是与映射文件中所匹配的resultType类型的对象
+    // selectOne查询出一条记录
+    User user = sqlSession.selectOne(&quot;test.findUserById&quot;, 1);
+
+    System.out.println(user);
+    // 释放资源
+    sqlSession.close();
+
+}
+</code></pre>
       
     </div>
     
@@ -399,12 +524,12 @@ scope=&quot;prototype&quot;&gt;
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/07/27/Spring/">Spring</a></p>
+  <p><span>本文标题:</span><a href="/2018/07/30/Mybatis/">Mybatis</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 KingSoul 的个人博客">KingSoul</a></p>
-  <p><span>发布时间:</span>2018年07月27日 - 11:07</p>
-  <p><span>最后更新:</span>2018年07月27日 - 15:07</p>
-  <p><span>原始链接:</span><a href="/2018/07/27/Spring/" title="Spring">ztzhang.cn/2018/07/27/Spring/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="ztzhang.cn/2018/07/27/Spring/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年07月30日 - 09:07</p>
+  <p><span>最后更新:</span>2018年07月30日 - 15:07</p>
+  <p><span>原始链接:</span><a href="/2018/07/30/Mybatis/" title="Mybatis">ztzhang.cn/2018/07/30/Mybatis/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="ztzhang.cn/2018/07/30/Mybatis/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -442,8 +567,8 @@ scope=&quot;prototype&quot;&gt;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/27/JDBC/" rel="next" title="JDBC">
-                <i class="fa fa-chevron-left"></i> JDBC
+              <a href="/2018/07/27/SpringMVC/" rel="next" title="SpringMVC">
+                <i class="fa fa-chevron-left"></i> SpringMVC
               </a>
             
           </div>
@@ -451,10 +576,6 @@ scope=&quot;prototype&quot;&gt;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/27/SpringMVC/" rel="prev" title="SpringMVC">
-                SpringMVC <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -572,7 +693,7 @@ scope=&quot;prototype&quot;&gt;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring容器和bean原理"><span class="nav-number">1.</span> <span class="nav-text">Spring容器和bean原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#传统组件调用方式"><span class="nav-number">1.1.</span> <span class="nav-text">传统组件调用方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法——–利用IoC（Invention-of-Control-控制反转）解耦"><span class="nav-number">1.2.</span> <span class="nav-text">解决方法——–利用IoC（Invention of Control,控制反转）解耦</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实例化IoC容器—BeanFactory"><span class="nav-number">1.2.1.</span> <span class="nav-text">实例化IoC容器—BeanFactory</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实例化IoC容器—ApplicationContext-常用"><span class="nav-number">1.2.2.</span> <span class="nav-text">实例化IoC容器—ApplicationContext (常用)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BeanFactory-与ApplicationContext-区别"><span class="nav-number">1.2.3.</span> <span class="nav-text">BeanFactory 与ApplicationContext 区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bean的定义"><span class="nav-number">1.2.4.</span> <span class="nav-text">Bean的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bean的获取"><span class="nav-number">1.2.5.</span> <span class="nav-text">Bean的获取</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖注入的实现"><span class="nav-number">2.</span> <span class="nav-text">依赖注入的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向切面的编程AOP"><span class="nav-number">3.</span> <span class="nav-text">面向切面的编程AOP</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mybatis框架简介"><span class="nav-number">1.</span> <span class="nav-text">Mybatis框架简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#传统JDBC操作"><span class="nav-number">1.1.</span> <span class="nav-text">传统JDBC操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例子"><span class="nav-number">1.1.1.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存在问题—硬编码"><span class="nav-number">1.1.2.</span> <span class="nav-text">存在问题—硬编码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用mybatis的改进"><span class="nav-number">1.2.</span> <span class="nav-text">使用mybatis的改进</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#环境配置"><span class="nav-number">1.2.1.</span> <span class="nav-text">环境配置</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

@@ -91,7 +91,7 @@
 <meta property="og:image" content="/2018/07/27/SpringMVC/webxml.png">
 <meta property="og:image" content="/2018/07/27/SpringMVC/springmvcxml.png">
 <meta property="og:image" content="/2018/07/27/SpringMVC/controller.png">
-<meta property="og:updated_time" content="2018-07-27T10:06:29.638Z">
+<meta property="og:updated_time" content="2018-07-28T08:44:09.557Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringMVC">
 <meta name="twitter:description" content="springMVC分离了控制器、模型对象、过滤器以及处理程序对象的角色">
@@ -329,7 +329,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  354
+                  607
                 </span>
               
 
@@ -345,7 +345,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -367,12 +367,15 @@
 
       
         <p>springMVC分离了控制器、模型对象、过滤器以及处理程序对象的角色<br><a id="more"></a><br><img src="/2018/07/27/SpringMVC/springmvc_核心架构图.jpg" title="springmvc核心架构图"></p>
-<h2 id="简述SpringMVC工作流程"><a href="#简述SpringMVC工作流程" class="headerlink" title="简述SpringMVC工作流程"></a>简述SpringMVC工作流程</h2><p>一个springMVC项目的结构<br><img src="/2018/07/27/SpringMVC/项目结构.png" title="webapp"><br>web.xml是项目的入口<br><img src="/2018/07/27/SpringMVC/webxml.png" title="web.xml"><br><img src="/2018/07/27/SpringMVC/springmvcxml.png" title="springmvc.xml"><br>工作流程：</p>
+<h2 id="简述SpringMVC工作流程"><a href="#简述SpringMVC工作流程" class="headerlink" title="简述SpringMVC工作流程"></a>简述SpringMVC工作流程</h2><p>一个springMVC项目的结构<br><img src="/2018/07/27/SpringMVC/项目结构.png" title="webapp"><br>web.xml是项目的入口<br><img src="/2018/07/27/SpringMVC/webxml.png" title="web.xml"><br>DispatcherServlet是前置控制器，配置在web.xml文件中的。拦截匹配的请求，Servlet拦截匹配规则要自已定义，把拦截下来的请求，依据相应的规则分发到目标Controller来处理，是配置spring MVC的第一步。<br><img src="/2018/07/27/SpringMVC/springmvcxml.png" title="springmvc.xml"><br>工作流程：</p>
 <p>启动tomcat，程序开始运行，进入index.jsp页面，点击在该页面的如下链接，之后进入程序中的找到相应的controller，controller处理好数据之后，将视图转到/WEB-INF/jsp/items/itemsList.jsp，之后将这个页面显示在浏览器url为/queryItems.action下；即/queryItems.action就是/WEB-INF/jsp/items/itemsList.jsp    （在WEB-INF目录下的文件不能直接利用url进行访问）<br><img src="/2018/07/27/SpringMVC/controller.png" title="ItemsController.java"></p>
-<h2 id="SpringMVC处理器映射器"><a href="#SpringMVC处理器映射器" class="headerlink" title="SpringMVC处理器映射器"></a>SpringMVC处理器映射器</h2><p>处理器映射器（HandlerMapping），负责根据request请求找到对应的Handler处理器及Interceptor拦截器，将它们封装在HandlerExecutionChain对象中给前端控制器返回</p>
+<pre><code>@Controller 负责注册一个bean 到spring 上下文中
+@RequestMapping 注解为控制器指定可以处理哪些 URL 请求
+</code></pre><h2 id="SpringMVC处理器映射器"><a href="#SpringMVC处理器映射器" class="headerlink" title="SpringMVC处理器映射器"></a>SpringMVC处理器映射器</h2><p>处理器映射器（HandlerMapping），负责根据request请求找到对应的Handler处理器及Interceptor拦截器，将它们封装在HandlerExecutionChain对象中给前端控制器返回</p>
 <h3 id="注解的HandlerMapping"><a href="#注解的HandlerMapping" class="headerlink" title="注解的HandlerMapping"></a>注解的HandlerMapping</h3><p>在类中标记@RequestMapping，根据RequestMapping中的URL匹配RequestMapping标记的方法，匹配成功返回HandleMethod对象给前端控制器，HandleMethod对象封装URL对应的方法</p>
 <h2 id="SpringMVC处理器适配器"><a href="#SpringMVC处理器适配器" class="headerlink" title="SpringMVC处理器适配器"></a>SpringMVC处理器适配器</h2><p>处理器适配器（HandlerAdapter），HandlerAdapter会根据适配器接口对后端控制器进行包装（适配），包装后即可对处理器进行执行，通过扩展处理器适配器可以执行多种类型的处理器，这里使用了适配器设计模式。</p>
 <h3 id="注解的HandlerAdapter"><a href="#注解的HandlerAdapter" class="headerlink" title="注解的HandlerAdapter"></a>注解的HandlerAdapter</h3><p>对标记@ResquestMapping的方法进行适配</p>
+<h2 id="映射请求"><a href="#映射请求" class="headerlink" title="映射请求"></a>映射请求</h2><p>Spring MVC 使用 @RequestMapping 注解为控制器指定可以处理哪些 URL 请求，<br>在 <em>控制器的类定义</em> 及 <em>方法定义</em> 处都可标注<br>类定义处：提供初步的请求映射信息。相对于 WEB 应用的根目录<br>方法处：提供进一步的细分映射信息。相对于类定义处的 URL。若类定义处未标注 @RequestMapping，则方法处标记的 URL 相对于WEB 应用的根目录<br>DispatcherServlet 截获请求后，就通过控制器上@RequestMapping 提供的映射信息确定请求所对应的处理方法。</p>
 
       
     </div>
@@ -392,7 +395,7 @@
   <p><span>本文标题:</span><a href="/2018/07/27/SpringMVC/">SpringMVC</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 KingSoul 的个人博客">KingSoul</a></p>
   <p><span>发布时间:</span>2018年07月27日 - 15:07</p>
-  <p><span>最后更新:</span>2018年07月27日 - 18:07</p>
+  <p><span>最后更新:</span>2018年07月28日 - 16:07</p>
   <p><span>原始链接:</span><a href="/2018/07/27/SpringMVC/" title="SpringMVC">ztzhang.cn/2018/07/27/SpringMVC/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="ztzhang.cn/2018/07/27/SpringMVC/"  aria-label="复制成功！"></i></span>
   </p>
@@ -441,6 +444,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/30/Mybatis/" rel="prev" title="Mybatis">
+                Mybatis <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -521,7 +528,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -558,7 +565,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简述SpringMVC工作流程"><span class="nav-number">1.</span> <span class="nav-text">简述SpringMVC工作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringMVC处理器映射器"><span class="nav-number">2.</span> <span class="nav-text">SpringMVC处理器映射器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注解的HandlerMapping"><span class="nav-number">2.1.</span> <span class="nav-text">注解的HandlerMapping</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringMVC处理器适配器"><span class="nav-number">3.</span> <span class="nav-text">SpringMVC处理器适配器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注解的HandlerAdapter"><span class="nav-number">3.1.</span> <span class="nav-text">注解的HandlerAdapter</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简述SpringMVC工作流程"><span class="nav-number">1.</span> <span class="nav-text">简述SpringMVC工作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringMVC处理器映射器"><span class="nav-number">2.</span> <span class="nav-text">SpringMVC处理器映射器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注解的HandlerMapping"><span class="nav-number">2.1.</span> <span class="nav-text">注解的HandlerMapping</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringMVC处理器适配器"><span class="nav-number">3.</span> <span class="nav-text">SpringMVC处理器适配器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注解的HandlerAdapter"><span class="nav-number">3.1.</span> <span class="nav-text">注解的HandlerAdapter</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#映射请求"><span class="nav-number">4.</span> <span class="nav-text">映射请求</span></a></li></ol></div>
             
 
           </div>
@@ -592,7 +599,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.4k</span>
+    <span title="Site words total count">3.0k</span>
   
 </div>
 
