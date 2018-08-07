@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="KingSoul&#39;s Garden">
 <meta property="og:description" content="spring是一个开源的JavaEE框架，因它使用面向接口的编程思想贯穿整个系统应用，解决是业务逻辑层和其他各层的松耦合问题，它包括7大模块，Spring Core、Spring Context、Spring AOP、Spring DAO、Spring ORM、Spring Web 、Spring MVC">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-30T10:16:27.182Z">
+<meta property="og:updated_time" content="2018-08-07T07:15:29.625Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring">
 <meta name="twitter:description" content="spring是一个开源的JavaEE框架，因它使用面向接口的编程思想贯穿整个系统应用，解决是业务逻辑层和其他各层的松耦合问题，它包括7大模块，Spring Core、Spring Context、Spring AOP、Spring DAO、Spring ORM、Spring Web 、Spring MVC">
@@ -324,7 +324,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  397
+                  943
                 </span>
               
 
@@ -340,7 +340,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
               
             </div>
@@ -382,8 +382,18 @@ destroy-method=&quot;deestroy&quot;
 scope=&quot;prototype&quot;&gt;
 &lt;/bean&gt;
 </code></pre><h4 id="Bean的获取"><a href="#Bean的获取" class="headerlink" title="Bean的获取"></a>Bean的获取</h4><pre><code>apc.getBean(&quot;people&quot;)  ;                 
-</code></pre><h2 id="依赖注入的实现"><a href="#依赖注入的实现" class="headerlink" title="依赖注入的实现"></a>依赖注入的实现</h2><h2 id="面向切面的编程AOP"><a href="#面向切面的编程AOP" class="headerlink" title="面向切面的编程AOP"></a>面向切面的编程AOP</h2><p>切面aspect：就是公共操作的集合类，包含处理前操作，处理后操作；</p>
-<p>切点pointcut：就是需要公共操作的方法集；比如adduser；addbook…..</p>
+</code></pre><h2 id="依赖注入的实现"><a href="#依赖注入的实现" class="headerlink" title="依赖注入的实现"></a>依赖注入的实现</h2><h2 id="面向切面的编程AOP"><a href="#面向切面的编程AOP" class="headerlink" title="面向切面的编程AOP"></a>面向切面的编程AOP</h2><h3 id="AOP是什么"><a href="#AOP是什么" class="headerlink" title="AOP是什么"></a>AOP是什么</h3><p>面向切面编程(aspect oriented programming)<br>(AOP介绍：<a href="https://www.cnblogs.com/Wolfmanlq/p/6036019.html" target="_blank" rel="noopener">https://www.cnblogs.com/Wolfmanlq/p/6036019.html</a>)<br>OOP（Object Oriented Programming）引入封装、继承、多态等概念来建立一种对象层次结构，用于模拟公共行为的一个集合。不过OOP允许开发者定义纵向的关系，但并不适合定义横向的关系，例如日志功能。日志代码往往横向地散布在所有对象层次中，而与它对应的对象的核心功能毫无关系对于其他类型的代码，如安全性、异常处理和透明的持续性也都是如此，这种散布在各处的无关的代码被称为横切（cross cutting），在OOP设计中，它导致了大量代码的重复，而不利于各个模块的重用。<br>AOP技术恰恰相反，它利用一种称为”横切”的技术，剖解开封装的对象内部，并将那些影响了多个类的公共行为封装到一个可重用模块，并将其命名为”Aspect”，即切面。所谓”切面”，简单说就是那些与业务无关，却为业务模块所共同调用的逻辑或责任封装起来，便于减少系统的重复代码，降低模块之间的耦合度，并有利于未来的可操作性和可维护性。</p>
+<p>使用”横切”技术，AOP把软件系统分为两个部分：核心关注点和横切关注点。业务处理的主要流程是核心关注点，与之关系不大的部分是横切关注点。横切关注点的一个特点是，他们经常发生在核心关注点的多处，而各处基本相似，比如权限认证、日志、事物。AOP的作用在于分离系统中的各种关注点，将核心关注点和横切关注点分离开来。<br>Spring AOP的出现时为了取代EJB的事务机制;<br>(EJB介绍：<a href="https://www.cnblogs.com/EasonJim/p/7103546.html" target="_blank" rel="noopener">https://www.cnblogs.com/EasonJim/p/7103546.html</a>)</p>
+<h3 id="AOP涉及的概念"><a href="#AOP涉及的概念" class="headerlink" title="AOP涉及的概念"></a>AOP涉及的概念</h3><p><a href="https://www.cnblogs.com/liuruowang/p/5711563.html" target="_blank" rel="noopener">https://www.cnblogs.com/liuruowang/p/5711563.html</a></p>
+<ul>
+<li>Aspect：（切面）</li>
+<li>Joinpoint（连接点）</li>
+<li>Pointcut（切入点）</li>
+<li>Advice（通知）</li>
+<li>Target（目标对象）</li>
+<li>Weave（织入）</li>
+<li>Introduction(引入)<br>切面aspect：就是公共操作的集合类，包含处理前操作，处理后操作；<br>切点pointcut：就是需要公共操作的方法集；比如adduser；addbook…..</li>
+</ul>
 
       
     </div>
@@ -403,7 +413,7 @@ scope=&quot;prototype&quot;&gt;
   <p><span>本文标题:</span><a href="/2018/07/27/Spring/">Spring</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 KingSoul 的个人博客">KingSoul</a></p>
   <p><span>发布时间:</span>2018年07月27日 - 11:07</p>
-  <p><span>最后更新:</span>2018年07月30日 - 18:07</p>
+  <p><span>最后更新:</span>2018年08月07日 - 15:08</p>
   <p><span>原始链接:</span><a href="/2018/07/27/Spring/" title="Spring">ztzhang.cn/2018/07/27/Spring/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="ztzhang.cn/2018/07/27/Spring/"  aria-label="复制成功！"></i></span>
   </p>
@@ -588,7 +598,7 @@ scope=&quot;prototype&quot;&gt;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring容器和bean原理"><span class="nav-number">1.</span> <span class="nav-text">Spring容器和bean原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#传统组件调用方式"><span class="nav-number">1.1.</span> <span class="nav-text">传统组件调用方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法——–利用IoC（Invention-of-Control-控制反转）解耦"><span class="nav-number">1.2.</span> <span class="nav-text">解决方法——–利用IoC（Invention of Control,控制反转）解耦</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实例化IoC容器—BeanFactory"><span class="nav-number">1.2.1.</span> <span class="nav-text">实例化IoC容器—BeanFactory</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实例化IoC容器—ApplicationContext-常用"><span class="nav-number">1.2.2.</span> <span class="nav-text">实例化IoC容器—ApplicationContext (常用)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BeanFactory-与ApplicationContext-区别"><span class="nav-number">1.2.3.</span> <span class="nav-text">BeanFactory 与ApplicationContext 区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bean的定义"><span class="nav-number">1.2.4.</span> <span class="nav-text">Bean的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bean的获取"><span class="nav-number">1.2.5.</span> <span class="nav-text">Bean的获取</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖注入的实现"><span class="nav-number">2.</span> <span class="nav-text">依赖注入的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向切面的编程AOP"><span class="nav-number">3.</span> <span class="nav-text">面向切面的编程AOP</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring容器和bean原理"><span class="nav-number">1.</span> <span class="nav-text">Spring容器和bean原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#传统组件调用方式"><span class="nav-number">1.1.</span> <span class="nav-text">传统组件调用方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法——–利用IoC（Invention-of-Control-控制反转）解耦"><span class="nav-number">1.2.</span> <span class="nav-text">解决方法——–利用IoC（Invention of Control,控制反转）解耦</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实例化IoC容器—BeanFactory"><span class="nav-number">1.2.1.</span> <span class="nav-text">实例化IoC容器—BeanFactory</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实例化IoC容器—ApplicationContext-常用"><span class="nav-number">1.2.2.</span> <span class="nav-text">实例化IoC容器—ApplicationContext (常用)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BeanFactory-与ApplicationContext-区别"><span class="nav-number">1.2.3.</span> <span class="nav-text">BeanFactory 与ApplicationContext 区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bean的定义"><span class="nav-number">1.2.4.</span> <span class="nav-text">Bean的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bean的获取"><span class="nav-number">1.2.5.</span> <span class="nav-text">Bean的获取</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖注入的实现"><span class="nav-number">2.</span> <span class="nav-text">依赖注入的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向切面的编程AOP"><span class="nav-number">3.</span> <span class="nav-text">面向切面的编程AOP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AOP是什么"><span class="nav-number">3.1.</span> <span class="nav-text">AOP是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AOP涉及的概念"><span class="nav-number">3.2.</span> <span class="nav-text">AOP涉及的概念</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -622,7 +632,7 @@ scope=&quot;prototype&quot;&gt;
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">13.7k</span>
+    <span title="Site words total count">14.2k</span>
   
 </div>
 
