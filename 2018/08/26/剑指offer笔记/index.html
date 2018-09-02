@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="KingSoul&#39;s Garden">
 <meta property="og:description" content="面试题主页：http://zhedahht.blog.163.com/">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-02T01:02:50.174Z">
+<meta property="og:updated_time" content="2018-09-02T05:54:38.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指offer笔记">
 <meta name="twitter:description" content="面试题主页：http://zhedahht.blog.163.com/">
@@ -323,7 +323,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  713
+                  1,411
                 </span>
               
 
@@ -339,7 +339,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  6
                 </span>
               
             </div>
@@ -361,10 +361,27 @@
 
       
         <p>面试题主页：<a href="http://zhedahht.blog.163.com/" target="_blank" rel="noopener">http://zhedahht.blog.163.com/</a><br><a id="more"></a></p>
+<h3 id="Java内存的堆和栈"><a href="#Java内存的堆和栈" class="headerlink" title="Java内存的堆和栈"></a>Java内存的堆和栈</h3><ul>
+<li>堆中存放对象 </li>
+<li>栈中存放对象的引用<h2 id="Java的参数的值传递与引用传递"><a href="#Java的参数的值传递与引用传递" class="headerlink" title="Java的参数的值传递与引用传递"></a>Java的参数的值传递与引用传递</h2></li>
+</ul>
+<p><a href="https://github.com/nnngu/LearningNotes/blob/master/Java%20Basis/007%20Java%E7%9A%84%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E6%98%AF%E5%80%BC%E4%BC%A0%E9%80%92%E8%BF%98%E6%98%AF%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92.md" target="_blank" rel="noopener">https://github.com/nnngu/LearningNotes/blob/master/Java%20Basis/007%20Java%E7%9A%84%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E6%98%AF%E5%80%BC%E4%BC%A0%E9%80%92%E8%BF%98%E6%98%AF%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92.md</a></p>
+<ul>
+<li>按值传递：值传递是指在调用函数时将实际参数复制一份传递到函数中，这样在函数中如果对参数进行修改，将不会影响到实际参数。简单来说就是直接复制了一份数据过去，因为是直接复制，所以这种方式在传递时如果数据量非常大的话，运行效率自然就变低了，所以java在传递数据量很小的数据是值传递，比如java中的各种基本类型。</li>
+<li>按引用传递：引用传递其实就弥补了上面说的不足，如果每次传参数的时候都复制一份的话，如果这个参数占用的内存空间太大的话，运行效率会很底下，所以引用传递就是直接把内存地址传过去，也就是说引用传递时，操作的其实都是源数据，这样的话修改有时候会冲突，记得用逻辑弥补下就好了，具体的数据类型就比较多了，比如Object，二维数组，List，Map等除了基本类型的参数都是引用传递。<h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">    private static void foo(int value) &#123;</span><br><span class="line">        value = 100;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        int num=1;</span><br><span class="line">        foo(num);</span><br><span class="line">        System.out.print(&quot;num :&quot;+num);//num没有改变</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">输出：num :1</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="String类型"><a href="#String类型" class="headerlink" title="String类型"></a>String类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">	static void foo(String text) &#123;</span><br><span class="line">	        text = &quot;windows&quot;;</span><br><span class="line">	    &#125;</span><br><span class="line">	public static void main(String[] args)&#123; </span><br><span class="line">		String str=&quot;Hello World&quot;;</span><br><span class="line">        foo(str);</span><br><span class="line">        System.out.print(&quot;str :&quot;+str);//str没有变</span><br><span class="line">	&#125;   </span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">输出：str:Hello World</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">	static void foo(StringBuilder builder) &#123;</span><br><span class="line">	    builder.append(&quot;4&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">	public static void main(String[] args)&#123; </span><br><span class="line">		StringBuilder str = new StringBuilder(&quot;iphone&quot;);</span><br><span class="line">        foo(str);</span><br><span class="line">        System.out.print(&quot;str :&quot;+str);//str发生改变</span><br><span class="line">	&#125;   </span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">输出：str:iphone4</span><br><span class="line">*/ </span><br><span class="line">void foo(StringBuilder builder) &#123;</span><br><span class="line">    builder.append(&quot;4&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="那些关于二叉树的事儿"><a href="#那些关于二叉树的事儿" class="headerlink" title="那些关于二叉树的事儿"></a>那些关于二叉树的事儿</h2><h3 id="序列化二叉树"><a href="#序列化二叉树" class="headerlink" title="序列化二叉树"></a>序列化二叉树</h3><p><a href="https://blog.csdn.net/d12345678a/article/details/54178612" target="_blank" rel="noopener">https://blog.csdn.net/d12345678a/article/details/54178612</a></p>
 <ul>
 <li>序列化：根据前序遍历的顺序，遍历二叉树絮遇到的空左子树或者右子树时，用”#”替代；节点间用”,”分隔开；</li>
-<li>反序列化：输入序列化的得到的字符串，还原二叉树；<h2 id="Java-栈与队列"><a href="#Java-栈与队列" class="headerlink" title="Java 栈与队列"></a>Java 栈与队列</h2><h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3>队列是一种特殊的线性表，它只允许在表的前端进行删除操作，而在表的后端进行插入操作。<br>LinkedList类实现了Queue接口，因此我们可以把LinkedList当成Queue来用。</li>
+<li>反序列化：输入序列化的得到的字符串，还原二叉树；<h2 id="递归思想"><a href="#递归思想" class="headerlink" title="递归思想"></a>递归思想</h2><h3 id="字符串的全排列"><a href="#字符串的全排列" class="headerlink" title="字符串的全排列"></a>字符串的全排列</h3>问题描述：输入一个字符串，打印出该字符串的所有排列。例如，输入字符串”abc”，则输出有字符’a’,’b’,’c’所能排列出来的所有字符串”abc”,”acb”,”bac”,”bca”,”cab”,”cba”；</li>
+</ul>
+<p>递归实现:将字符串看成两部分，第一部分是第一个字符，另一部分是之后的所有字符，之后将第一部分的字符与第二部分的字符逐个交换位置；</p>
+<p>代码：<a href="https://www.cnblogs.com/liuzhen1995/p/6395361.html" target="_blank" rel="noopener">https://www.cnblogs.com/liuzhen1995/p/6395361.html</a></p>
+<h2 id="Java-栈与队列"><a href="#Java-栈与队列" class="headerlink" title="Java 栈与队列"></a>Java 栈与队列</h2><h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><p>队列是一种特殊的线性表，它只允许在表的前端进行删除操作，而在表的后端进行插入操作。<br>LinkedList类实现了Queue接口，因此我们可以把LinkedList当成Queue来用。</p>
+<ul>
 <li>offer(); 添加元素</li>
 <li>poll(); 返回第一个元素，并在队列中删除</li>
 <li>element(): 返回第一个元素 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import java.util.LinkedList;</span><br><span class="line">import java.util.Queue;</span><br><span class="line"> </span><br><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //add()和remove()方法在失败的时候会抛出异常(不推荐)</span><br><span class="line">        Queue&lt;String&gt; queue = new LinkedList&lt;String&gt;();</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -397,7 +414,7 @@
   <p><span>本文标题:</span><a href="/2018/08/26/剑指offer笔记/">剑指offer笔记</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 KingSoul 的个人博客">KingSoul</a></p>
   <p><span>发布时间:</span>2018年08月26日 - 18:08</p>
-  <p><span>最后更新:</span>2018年09月02日 - 09:09</p>
+  <p><span>最后更新:</span>2018年09月02日 - 13:09</p>
   <p><span>原始链接:</span><a href="/2018/08/26/剑指offer笔记/" title="剑指offer笔记">ztzhang.cn/2018/08/26/剑指offer笔记/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="ztzhang.cn/2018/08/26/剑指offer笔记/"  aria-label="复制成功！"></i></span>
   </p>
@@ -572,7 +589,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#那些关于二叉树的事儿"><span class="nav-number">1.</span> <span class="nav-text">那些关于二叉树的事儿</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#序列化二叉树"><span class="nav-number">1.1.</span> <span class="nav-text">序列化二叉树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-栈与队列"><span class="nav-number">2.</span> <span class="nav-text">Java 栈与队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#栈"><span class="nav-number">2.1.</span> <span class="nav-text">栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列"><span class="nav-number">2.2.</span> <span class="nav-text">队列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态规划与贪婪算法"><span class="nav-number">3.</span> <span class="nav-text">动态规划与贪婪算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态规划"><span class="nav-number">3.1.</span> <span class="nav-text">动态规划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#贪婪算法"><span class="nav-number">3.2.</span> <span class="nav-text">贪婪算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-number">3.3.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回溯法"><span class="nav-number">4.</span> <span class="nav-text">回溯法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子："><span class="nav-number">4.1.</span> <span class="nav-text">例子：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#回溯法求解图的着色问题"><span class="nav-number">4.1.1.</span> <span class="nav-text">回溯法求解图的着色问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位运算"><span class="nav-number">5.</span> <span class="nav-text">位运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入一个整数求其二进制数中的1的个数"><span class="nav-number">5.1.</span> <span class="nav-text">输入一个整数求其二进制数中的1的个数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java内存的堆和栈"><span class="nav-number">1.</span> <span class="nav-text">Java内存的堆和栈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java的参数的值传递与引用传递"><span class="nav-number"></span> <span class="nav-text">Java的参数的值传递与引用传递</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本数据类型"><span class="nav-number">1.</span> <span class="nav-text">基本数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String类型"><span class="nav-number">2.</span> <span class="nav-text">String类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象"><span class="nav-number">3.</span> <span class="nav-text">对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#那些关于二叉树的事儿"><span class="nav-number"></span> <span class="nav-text">那些关于二叉树的事儿</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#序列化二叉树"><span class="nav-number">1.</span> <span class="nav-text">序列化二叉树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归思想"><span class="nav-number"></span> <span class="nav-text">递归思想</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串的全排列"><span class="nav-number">1.</span> <span class="nav-text">字符串的全排列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-栈与队列"><span class="nav-number"></span> <span class="nav-text">Java 栈与队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#栈"><span class="nav-number">1.</span> <span class="nav-text">栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列"><span class="nav-number">2.</span> <span class="nav-text">队列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态规划与贪婪算法"><span class="nav-number"></span> <span class="nav-text">动态规划与贪婪算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态规划"><span class="nav-number">1.</span> <span class="nav-text">动态规划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#贪婪算法"><span class="nav-number">2.</span> <span class="nav-text">贪婪算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-number">3.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回溯法"><span class="nav-number"></span> <span class="nav-text">回溯法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子："><span class="nav-number">1.</span> <span class="nav-text">例子：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#回溯法求解图的着色问题"><span class="nav-number">1.1.</span> <span class="nav-text">回溯法求解图的着色问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位运算"><span class="nav-number"></span> <span class="nav-text">位运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入一个整数求其二进制数中的1的个数"><span class="nav-number">1.</span> <span class="nav-text">输入一个整数求其二进制数中的1的个数</span></a></li></ol></div>
             
 
           </div>
@@ -606,7 +623,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">14.9k</span>
+    <span title="Site words total count">15.6k</span>
   
 </div>
 
