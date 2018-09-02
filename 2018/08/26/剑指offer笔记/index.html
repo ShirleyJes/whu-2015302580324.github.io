@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="KingSoul&#39;s Garden">
 <meta property="og:description" content="面试题主页：http://zhedahht.blog.163.com/">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-02T06:02:12.393Z">
+<meta property="og:updated_time" content="2018-09-02T06:07:01.475Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指offer笔记">
 <meta name="twitter:description" content="面试题主页：http://zhedahht.blog.163.com/">
@@ -375,13 +375,17 @@
 <h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">	static void foo(StringBuilder builder) &#123;</span><br><span class="line">	    builder.append(&quot;4&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">	public static void main(String[] args)&#123; </span><br><span class="line">		StringBuilder str = new StringBuilder(&quot;iphone&quot;);</span><br><span class="line">        foo(str);</span><br><span class="line">        System.out.print(&quot;str :&quot;+str);//str发生改变</span><br><span class="line">	&#125;   </span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line">输出：str:iphone4</span><br><span class="line">*/ </span><br><span class="line">void foo(StringBuilder builder) &#123;</span><br><span class="line">    builder.append(&quot;4&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="那些关于二叉树的事儿"><a href="#那些关于二叉树的事儿" class="headerlink" title="那些关于二叉树的事儿"></a>那些关于二叉树的事儿</h2><h3 id="序列化二叉树"><a href="#序列化二叉树" class="headerlink" title="序列化二叉树"></a>序列化二叉树</h3><p><a href="https://blog.csdn.net/d12345678a/article/details/54178612" target="_blank" rel="noopener">https://blog.csdn.net/d12345678a/article/details/54178612</a></p>
 <ul>
-<li>序列化：根据前序遍历的顺序，遍历二叉树絮遇到的空左子树或者右子树时，用”#”替代；节点间用”,”分隔开；</li>
-<li>反序列化：输入序列化的得到的字符串，还原二叉树；<h2 id="递归思想"><a href="#递归思想" class="headerlink" title="递归思想"></a>递归思想</h2><h3 id="字符串的全排列"><a href="#字符串的全排列" class="headerlink" title="字符串的全排列"></a>字符串的全排列</h3>问题描述：输入一个字符串，打印出该字符串的所有排列。例如，输入字符串”abc”，则输出有字符’a’,’b’,’c’所能排列出来的所有字符串”abc”,”acb”,”bac”,”bca”,”cab”,”cba”；</li>
+<li>序列化：根据前序遍历的顺序，遍历二叉树遇到的空左子树或者空右子树时，用”#”替代；节点间用”,”分隔开；</li>
+<li>反序列化：输入序列化的得到的字符串，还原二叉树；</li>
 </ul>
-<p>递归实现:将字符串看成两部分，第一部分是第一个字符，另一部分是之后的所有字符，之后将第一部分的字符与第二部分的字符逐个交换位置；</p>
-<p>代码：<a href="https://www.cnblogs.com/liuzhen1995/p/6395361.html" target="_blank" rel="noopener">https://www.cnblogs.com/liuzhen1995/p/6395361.html</a></p>
+<h2 id="递归思想"><a href="#递归思想" class="headerlink" title="递归思想"></a>递归思想</h2><h3 id="字符串的全排列"><a href="#字符串的全排列" class="headerlink" title="字符串的全排列"></a>字符串的全排列</h3><ul>
+<li><p>问题描述：输入一个字符串，打印出该字符串的所有排列。例如，输入字符串”abc”，则输出有字符’a’,’b’,’c’所能排列出来的所有字符串”abc”,”acb”,”bac”,”bca”,”cab”,”cba”；</p>
+</li>
+<li><p>递归实现:将字符串看成两部分，第一部分是第一个字符，另一部分是之后的所有字符，之后将第一部分的字符与第二部分的字符逐个交换位置；</p>
+</li>
+<li><p>代码：<a href="https://www.cnblogs.com/liuzhen1995/p/6395361.html" target="_blank" rel="noopener">https://www.cnblogs.com/liuzhen1995/p/6395361.html</a></p>
 <h2 id="Java-栈与队列"><a href="#Java-栈与队列" class="headerlink" title="Java 栈与队列"></a>Java 栈与队列</h2><h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><p>队列是一种特殊的线性表，它只允许在表的前端进行删除操作，而在表的后端进行插入操作。<br>LinkedList类实现了Queue接口，因此我们可以把LinkedList当成Queue来用。</p>
-<ul>
+</li>
 <li>offer(); 添加元素</li>
 <li>poll(); 返回第一个元素，并在队列中删除</li>
 <li>element(): 返回第一个元素 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import java.util.LinkedList;</span><br><span class="line">import java.util.Queue;</span><br><span class="line"> </span><br><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //add()和remove()方法在失败的时候会抛出异常(不推荐)</span><br><span class="line">        Queue&lt;String&gt; queue = new LinkedList&lt;String&gt;();</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
