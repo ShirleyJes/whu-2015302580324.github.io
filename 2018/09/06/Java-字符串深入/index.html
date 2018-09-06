@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="KingSoul&#39;s Garden">
 <meta property="og:description" content="String、StringBuffer与StringBuilder之间区别运行速度StringBuilder &amp;gt; StringBuffer &amp;gt; StringString最慢的原因： String为字符串常量，而StringBuilder和StringBuffer均为字符串变量，即String对象一旦创建之后该对象是不可更改的，但后两者的对象是变量，是可以更改的。以下面一段代码为例： S">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-06T03:50:34.180Z">
+<meta property="og:updated_time" content="2018-09-06T04:06:53.073Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 字符串深入">
 <meta name="twitter:description" content="String、StringBuffer与StringBuilder之间区别运行速度StringBuilder &amp;gt; StringBuffer &amp;gt; StringString最慢的原因： String为字符串常量，而StringBuilder和StringBuffer均为字符串变量，即String对象一旦创建之后该对象是不可更改的，但后两者的对象是变量，是可以更改的。以下面一段代码为例： S">
@@ -324,7 +324,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  731
+                  1,207
                 </span>
               
 
@@ -340,7 +340,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  5
                 </span>
               
             </div>
@@ -361,7 +361,7 @@
       
 
       
-        <h1 id="String、StringBuffer与StringBuilder之间区别"><a href="#String、StringBuffer与StringBuilder之间区别" class="headerlink" title="String、StringBuffer与StringBuilder之间区别"></a>String、StringBuffer与StringBuilder之间区别</h1><h2 id="运行速度StringBuilder-gt-StringBuffer-gt-String"><a href="#运行速度StringBuilder-gt-StringBuffer-gt-String" class="headerlink" title="运行速度StringBuilder &gt; StringBuffer &gt; String"></a>运行速度StringBuilder &gt; StringBuffer &gt; String</h2><p>String最慢的原因：</p>
+        <h1 id="String、StringBuffer与StringBuilder之间区别"><a href="#String、StringBuffer与StringBuilder之间区别" class="headerlink" title="String、StringBuffer与StringBuilder之间区别"></a>String、StringBuffer与StringBuilder之间区别</h1><h2 id="运行速度"><a href="#运行速度" class="headerlink" title="运行速度"></a>运行速度</h2><p>StringBuilder &gt; StringBuffer &gt; String<br>String最慢的原因：</p>
 <p>String为字符串常量，而StringBuilder和StringBuffer均为字符串变量，即String对象一旦创建之后该对象是不可更改的，但后两者的对象是变量，是可以更改的。以下面一段代码为例：</p>
 <p>String str=”abc”;</p>
 <p>System.out.println(str);</p>
@@ -386,6 +386,19 @@
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>String：适用于少量的字符串操作的情况</p>
 <p>StringBuilder：适用于单线程下在字符缓冲区进行大量操作的情况</p>
 <p>StringBuffer：适用多线程下在字符缓冲区进行大量操作的情况</p>
+<h1 id="StringBuffer常用方法"><a href="#StringBuffer常用方法" class="headerlink" title="StringBuffer常用方法"></a>StringBuffer常用方法</h1><p>StringBuffer和StringBuider的方法差不多</p>
+<h2 id="toString-String"><a href="#toString-String" class="headerlink" title="toString():String"></a>toString():String</h2><h2 id="append-String-：StringBuffer"><a href="#append-String-：StringBuffer" class="headerlink" title="append(String)：StringBuffer"></a>append(String)：StringBuffer</h2><p>追加内容到当前StringBuffer对象的末尾，类似于字符串的连接。调用该方法以后，StringBuffer对象的内容也发生改变;<br>例如：</p>
+<p>StringBuffer sb = new StringBuffer(“abc”);<br>sb.append(true);<br>则对象sb的值将变成”abctrue”。</p>
+<h2 id="insert-int-offset-String-s-：StringBuffer"><a href="#insert-int-offset-String-s-：StringBuffer" class="headerlink" title="insert(int offset, String s)：StringBuffer"></a>insert(int offset, String s)：StringBuffer</h2><p>StringBuffer对象中的相应索引后面插入内容，然后形成新的字符串<br>例如：</p>
+<p>StringBuffer sb = new StringBuffer(“TestString”);<br>sb.insert(4,false);<br>该示例代码的作用是在对象sb的索引值4的位置插入false值，形成新的字符串，则执行以后对象sb的值是”TestfalseString”。</p>
+<h2 id="reverse-：StringBuffer"><a href="#reverse-：StringBuffer" class="headerlink" title="reverse()：StringBuffer"></a>reverse()：StringBuffer</h2><p>将StringBuffer对象中的内容反转，然后形成新的字符串。<br>例如：</p>
+<p>StringBuffer sb = new StringBuffer(“abc”);<br>sb.reverse();<br>经过反转以后，对象sb中的内容将变为”cba”。</p>
+<h2 id="setCharAt-int-index-char-ch-void"><a href="#setCharAt-int-index-char-ch-void" class="headerlink" title="setCharAt(int index, char ch): void"></a>setCharAt(int index, char ch): void</h2><p>该方法的作用是修改对象中索引值为index位置的字符为新的字符ch。<br>例如：</p>
+<p>StringBuffer sb = new StringBuffer(“abc”);<br>sb.setCharAt(1,’D’);<br>则对象sb的值将变成”aDc”。</p>
+<h2 id="deleteCharAt-int-index-StringBuffer"><a href="#deleteCharAt-int-index-StringBuffer" class="headerlink" title="deleteCharAt(int index): StringBuffer"></a>deleteCharAt(int index): StringBuffer</h2><p>该方法的作用是删除指定位置的字符，然后将剩余的内容形成新的字符串。例如：</p>
+<p>StringBuffer sb = new StringBuffer(“Test”);<br>sb. deleteCharAt(1);<br>该代码的作用删除字符串对象sb中索引值为1的字符，也就是删除第二个字符，剩余的内容组成一个新的字符串。所以对象sb的值变为”Tst”。</p>
+<p>还存在一个功能类似的delete方法：</p>
+<h2 id="delete-int-start-int-end-StringBuffer"><a href="#delete-int-start-int-end-StringBuffer" class="headerlink" title="delete(int start,int end): StringBuffer"></a>delete(int start,int end): StringBuffer</h2><p>该方法的作用是删除指定区间以内的所有字符，包含start，不包含end索引值的区间。例如：<br>StringBuffer sb = new StringBuffer(“TestString”);<br>sb. delete (1,4);<br>该代码的作用是删除索引值1(包括)到索引值4(不包括)之间的所有字符，剩余的字符形成新的字符串。则对象sb的值是”TString”。</p>
 
       
     </div>
@@ -405,7 +418,7 @@
   <p><span>本文标题:</span><a href="/2018/09/06/Java-字符串深入/">Java 字符串深入</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 KingSoul 的个人博客">KingSoul</a></p>
   <p><span>发布时间:</span>2018年09月06日 - 11:09</p>
-  <p><span>最后更新:</span>2018年09月06日 - 11:09</p>
+  <p><span>最后更新:</span>2018年09月06日 - 12:09</p>
   <p><span>原始链接:</span><a href="/2018/09/06/Java-字符串深入/" title="Java 字符串深入">ztzhang.cn/2018/09/06/Java-字符串深入/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="ztzhang.cn/2018/09/06/Java-字符串深入/"  aria-label="复制成功！"></i></span>
   </p>
@@ -586,7 +599,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#String、StringBuffer与StringBuilder之间区别"><span class="nav-number">1.</span> <span class="nav-text">String、StringBuffer与StringBuilder之间区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#运行速度StringBuilder-gt-StringBuffer-gt-String"><span class="nav-number">1.1.</span> <span class="nav-text">运行速度StringBuilder &gt; StringBuffer &gt; String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程安全"><span class="nav-number">1.2.</span> <span class="nav-text">线程安全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#String、StringBuffer与StringBuilder之间区别"><span class="nav-number">1.</span> <span class="nav-text">String、StringBuffer与StringBuilder之间区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#运行速度"><span class="nav-number">1.1.</span> <span class="nav-text">运行速度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程安全"><span class="nav-number">1.2.</span> <span class="nav-text">线程安全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#StringBuffer常用方法"><span class="nav-number">2.</span> <span class="nav-text">StringBuffer常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#toString-String"><span class="nav-number">2.1.</span> <span class="nav-text">toString():String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#append-String-：StringBuffer"><span class="nav-number">2.2.</span> <span class="nav-text">append(String)：StringBuffer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#insert-int-offset-String-s-：StringBuffer"><span class="nav-number">2.3.</span> <span class="nav-text">insert(int offset, String s)：StringBuffer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reverse-：StringBuffer"><span class="nav-number">2.4.</span> <span class="nav-text">reverse()：StringBuffer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setCharAt-int-index-char-ch-void"><span class="nav-number">2.5.</span> <span class="nav-text">setCharAt(int index, char ch): void</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deleteCharAt-int-index-StringBuffer"><span class="nav-number">2.6.</span> <span class="nav-text">deleteCharAt(int index): StringBuffer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#delete-int-start-int-end-StringBuffer"><span class="nav-number">2.7.</span> <span class="nav-text">delete(int start,int end): StringBuffer</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -620,7 +633,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">25.9k</span>
+    <span title="Site words total count">26.4k</span>
   
 </div>
 
