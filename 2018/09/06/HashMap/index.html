@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="什么是MAP在数组中我们是通过数组下标来对其内容索引的，而在Map中我们通过对象来对对象进行索引，用来索引的对象叫做key，其对应的对象叫做value。Java集合资料：https://www.cnblogs.com/skywang12345/p/3323085.html">
+<meta name="description" content="什么是MAP在数组中我们是通过数组下标来对其内容索引的，而在Map中我们通过对象来对对象进行索引，用来索引的对象叫做key，其对应的对象叫做value。HashMap通过hashcode对其内容进行快速查找，而TreeMap中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用TreeMap。Java集合资料：https://www.cnblogs.com/skywang12">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HashMap">
 <meta property="og:url" content="ztzhang.cn/2018/09/06/HashMap/index.html">
 <meta property="og:site_name" content="KingSoul&#39;s Garden">
-<meta property="og:description" content="什么是MAP在数组中我们是通过数组下标来对其内容索引的，而在Map中我们通过对象来对对象进行索引，用来索引的对象叫做key，其对应的对象叫做value。Java集合资料：https://www.cnblogs.com/skywang12345/p/3323085.html">
+<meta property="og:description" content="什么是MAP在数组中我们是通过数组下标来对其内容索引的，而在Map中我们通过对象来对对象进行索引，用来索引的对象叫做key，其对应的对象叫做value。HashMap通过hashcode对其内容进行快速查找，而TreeMap中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用TreeMap。Java集合资料：https://www.cnblogs.com/skywang12">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-12T07:10:30.635Z">
+<meta property="og:image" content="/2018/09/06/HashMap/java集合框架图.png">
+<meta property="og:updated_time" content="2018-09-12T07:39:37.506Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HashMap">
-<meta name="twitter:description" content="什么是MAP在数组中我们是通过数组下标来对其内容索引的，而在Map中我们通过对象来对对象进行索引，用来索引的对象叫做key，其对应的对象叫做value。Java集合资料：https://www.cnblogs.com/skywang12345/p/3323085.html">
+<meta name="twitter:description" content="什么是MAP在数组中我们是通过数组下标来对其内容索引的，而在Map中我们通过对象来对对象进行索引，用来索引的对象叫做key，其对应的对象叫做value。HashMap通过hashcode对其内容进行快速查找，而TreeMap中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用TreeMap。Java集合资料：https://www.cnblogs.com/skywang12">
+<meta name="twitter:image" content="/2018/09/06/HashMap/java集合框架图.png">
 
 
 
@@ -323,7 +325,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  521
+                  734
                 </span>
               
 
@@ -339,7 +341,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -360,7 +362,7 @@
       
 
       
-        <h2 id="什么是MAP"><a href="#什么是MAP" class="headerlink" title="什么是MAP"></a>什么是MAP</h2><p>在数组中我们是通过数组下标来对其内容索引的，而在Map中我们通过对象来对对象进行索引，用来索引的对象叫做key，其对应的对象叫做value。<br>Java集合资料：<a href="https://www.cnblogs.com/skywang12345/p/3323085.html" target="_blank" rel="noopener">https://www.cnblogs.com/skywang12345/p/3323085.html</a><br><a id="more"></a></p>
+        <h2 id="什么是MAP"><a href="#什么是MAP" class="headerlink" title="什么是MAP"></a>什么是MAP</h2><p>在数组中我们是通过数组下标来对其内容索引的，而在Map中我们通过对象来对对象进行索引，用来索引的对象叫做key，其对应的对象叫做value。<br>HashMap通过hashcode对其内容进行快速查找，而TreeMap中所有的元素都保持着某种固定的顺序，如果你需要得到一个有序的结果你就应该使用TreeMap。<br>Java集合资料：<a href="https://www.cnblogs.com/skywang12345/p/3323085.html" target="_blank" rel="noopener">https://www.cnblogs.com/skywang12345/p/3323085.html</a><br><a id="more"></a><br><img src="/2018/09/06/HashMap/java集合框架图.png"></p>
 <h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><p>HashMap是一个散列表，HashMap通过hashcode对其内容进行快速查找；<br>HashMap 的实现不是同步的，这意味着它不是线程安全的。它的key、value都可以为null。此外，HashMap中的映射不是有序的。</p>
 <h3 id="HashMap-的API"><a href="#HashMap-的API" class="headerlink" title="HashMap 的API"></a>HashMap 的API</h3><p> clear()： void<br> clone()：Object<br> containsKey(Object key)：boolean<br>containsValue(Object value)：boolean<br>entrySet()：Set&lt;Entry&lt;K, V&gt;&gt;<br>get(Object key)：V<br> isEmpty()：boolean<br>keySet()：Set<k><br>put(K key, V value)：V<br>putAll(Map&lt;? extends K, ? extends V&gt; map)：void<br>remove(Object key)：V<br> size()：int<br>values()：Collection<v> </v></k></p>
 <h3 id="HashMap遍历方式"><a href="#HashMap遍历方式" class="headerlink" title="HashMap遍历方式"></a>HashMap遍历方式</h3><h4 id="遍历HashMap的键值对"><a href="#遍历HashMap的键值对" class="headerlink" title="遍历HashMap的键值对"></a>遍历HashMap的键值对</h4><p>第一步：根据entrySet()获取HashMap的“键值对”的Set集合。<br>第二步：通过Iterator迭代器遍历“第一步”得到的集合。</p>
@@ -375,7 +377,9 @@ Iterator iter= c.iterator();
 while (iter.hasNext()) {
     value = (Integer)iter.next();
 }
-</code></pre><h2 id="HashTable"><a href="#HashTable" class="headerlink" title="HashTable"></a>HashTable</h2><p>Hashtable 也是一个散列表，Hashtable 的函数都是同步的，这意味着它是线程安全的。它的key、value都不可以为null，Hashtable中的映射不是有序的。</p>
+</code></pre><h3 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap</h3><p>大多数情况下，只要不涉及线程安全问题，Map基本都可以使用HashMap，不过HashMap有一个问题，就是迭代HashMap的顺序并不是HashMap放置的顺序，也就是无序。HashMap的这一缺点往往会带来困扰，因为有些场景，我们期待一个有序的Map。</p>
+<p>这个时候，LinkedHashMap就闪亮登场了，它虽然增加了时间和空间上的开销，但是通过维护一个运行于所有条目的双向链表，LinkedHashMap保证了元素迭代的顺序。该迭代顺序可以是插入顺序或者是访问顺序。</p>
+<h2 id="HashTable"><a href="#HashTable" class="headerlink" title="HashTable"></a>HashTable</h2><p>Hashtable 也是一个散列表，Hashtable 的函数都是同步的，这意味着它是线程安全的。它的key、value都不可以为null，Hashtable中的映射不是有序的。</p>
 <h2 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h2>
       
     </div>
@@ -528,7 +532,7 @@ while (iter.hasNext()) {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -583,7 +587,7 @@ while (iter.hasNext()) {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是MAP"><span class="nav-number">1.</span> <span class="nav-text">什么是MAP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">2.</span> <span class="nav-text">HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap-的API"><span class="nav-number">2.1.</span> <span class="nav-text">HashMap 的API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap遍历方式"><span class="nav-number">2.2.</span> <span class="nav-text">HashMap遍历方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历HashMap的键值对"><span class="nav-number">2.2.1.</span> <span class="nav-text">遍历HashMap的键值对</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历HashMap的键"><span class="nav-number">2.2.2.</span> <span class="nav-text">遍历HashMap的键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历HashMap的值"><span class="nav-number">2.2.3.</span> <span class="nav-text">遍历HashMap的值</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashTable"><span class="nav-number">3.</span> <span class="nav-text">HashTable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeMap"><span class="nav-number">4.</span> <span class="nav-text">TreeMap</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是MAP"><span class="nav-number">1.</span> <span class="nav-text">什么是MAP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">2.</span> <span class="nav-text">HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap-的API"><span class="nav-number">2.1.</span> <span class="nav-text">HashMap 的API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap遍历方式"><span class="nav-number">2.2.</span> <span class="nav-text">HashMap遍历方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历HashMap的键值对"><span class="nav-number">2.2.1.</span> <span class="nav-text">遍历HashMap的键值对</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历HashMap的键"><span class="nav-number">2.2.2.</span> <span class="nav-text">遍历HashMap的键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历HashMap的值"><span class="nav-number">2.2.3.</span> <span class="nav-text">遍历HashMap的值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedHashMap"><span class="nav-number">2.3.</span> <span class="nav-text">LinkedHashMap</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashTable"><span class="nav-number">3.</span> <span class="nav-text">HashTable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeMap"><span class="nav-number">4.</span> <span class="nav-text">TreeMap</span></a></li></ol></div>
             
 
           </div>
@@ -617,7 +621,7 @@ while (iter.hasNext()) {
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">28.6k</span>
+    <span title="Site words total count">29.8k</span>
   
 </div>
 
