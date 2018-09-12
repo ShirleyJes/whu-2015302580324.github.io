@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="HashMap," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="ʲô��MAP��������������ͨ�������±����������������ģ�����Map������ͨ���������Զ���������������������Ķ������key�����Ӧ�Ķ������value��Java�������ϣ�https://www.cnblogs.com/skywang12345/p/3323085.html">
-<meta name="keywords" content="HashMap">
+<meta name="description" content="什么是MAP在数组中我们是通过数组下标来对其内容索引的，而在Map中我们通过对象来对对象进行索引，用来索引的对象叫做key，其对应的对象叫做value。Java集合资料：https://www.cnblogs.com/skywang12345/p/3323085.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HashMap">
 <meta property="og:url" content="ztzhang.cn/2018/09/06/HashMap/index.html">
 <meta property="og:site_name" content="KingSoul&#39;s Garden">
-<meta property="og:description" content="ʲô��MAP��������������ͨ�������±����������������ģ�����Map������ͨ���������Զ���������������������Ķ������key�����Ӧ�Ķ������value��Java�������ϣ�https://www.cnblogs.com/skywang12345/p/3323085.html">
+<meta property="og:description" content="什么是MAP在数组中我们是通过数组下标来对其内容索引的，而在Map中我们通过对象来对对象进行索引，用来索引的对象叫做key，其对应的对象叫做value。Java集合资料：https://www.cnblogs.com/skywang12345/p/3323085.html">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-06T07:51:32.395Z">
+<meta property="og:updated_time" content="2018-09-12T07:10:30.635Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HashMap">
-<meta name="twitter:description" content="ʲô��MAP��������������ͨ�������±����������������ģ�����Map������ͨ���������Զ���������������������Ķ������key�����Ӧ�Ķ������value��Java�������ϣ�https://www.cnblogs.com/skywang12345/p/3323085.html">
+<meta name="twitter:description" content="什么是MAP在数组中我们是通过数组下标来对其内容索引的，而在Map中我们通过对象来对对象进行索引，用来索引的对象叫做key，其对应的对象叫做value。Java集合资料：https://www.cnblogs.com/skywang12345/p/3323085.html">
 
 
 
@@ -324,7 +323,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  238
+                  521
                 </span>
               
 
@@ -340,7 +339,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -361,22 +360,22 @@
       
 
       
-        <h2 id="ʲo��MAP"><a href="#ʲo��MAP" class="headerlink" title="ʲô��MAP"></a>ʲô��MAP</h2><p>��������������ͨ�������±����������������ģ�����Map������ͨ���������Զ���������������������Ķ������key�����Ӧ�Ķ������value��<br>Java�������ϣ�<a href="https://www.cnblogs.com/skywang12345/p/3323085.html" target="_blank" rel="noopener">https://www.cnblogs.com/skywang12345/p/3323085.html</a><br><a id="more"></a></p>
-<h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><p>HashMap��һ��ɢ�б���HashMapͨ��hashcode�������ݽ��п��ٲ��ң�<br>HashMap ��ʵ�ֲ���ͬ���ģ�����ζ���������̰߳�ȫ�ġ�����key��value������Ϊnull�����⣬HashMap�е�ӳ�䲻������ġ�</p>
-<h3 id="HashMap-��API"><a href="#HashMap-��API" class="headerlink" title="HashMap ��API"></a>HashMap ��API</h3><p> clear()�� void<br> clone()��Object<br> containsKey(Object key)��boolean<br>containsValue(Object value)��boolean<br>entrySet()��Set&lt;Entry&lt;K, V&gt;&gt;<br>get(Object key)��V<br> isEmpty()��boolean<br>keySet()��Set<k><br>put(K key, V value)��V<br>putAll(Map&lt;? extends K, ? extends V&gt; map)��void<br>remove(Object key)��V<br> size()��int<br>values()��Collection<v> </v></k></p>
-<h3 id="HashMap������ʽ"><a href="#HashMap������ʽ" class="headerlink" title="HashMap������ʽ"></a>HashMap������ʽ</h3><h4 id="����HashMap�l�ֵ��"><a href="#����HashMap�l�ֵ��" class="headerlink" title="����HashMap�ļ�ֵ��"></a>����HashMap�ļ�ֵ��</h4><p>��һ��������entrySet()��ȡHashMap�ġ���ֵ�ԡ���Set���ϡ�<br>�ڶ�����ͨ��Iterator��������������һ�����õ��ļ��ϡ�</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// ����map��HashMap����</span><br><span class="line">// map�е�key��String���ͣ�value��Integer����</span><br><span class="line">Integer integ = null;</span><br><span class="line">Iterator iter = map.entrySet().iterator();</span><br><span class="line">while(iter.hasNext()) &#123;</span><br><span class="line">    Map.Entry entry = (Map.Entry)iter.next();</span><br><span class="line">    // ��ȡkey</span><br><span class="line">    key = (String)entry.getKey();</span><br><span class="line">        // ��ȡvalue</span><br><span class="line">    integ = (Integer)entry.getValue();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="����HashMap�l�"><a href="#����HashMap�l�" class="headerlink" title="����HashMap�ļ�"></a>����HashMap�ļ�</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">��һ��������keySet()��ȡHashMap�ġ�������Set���ϡ�</span><br><span class="line">�ڶ�����ͨ��Iterator��������������һ�����õ��ļ��ϡ�</span><br><span class="line"></span><br><span class="line">���ƴ���</span><br><span class="line">// ����map��HashMap����</span><br><span class="line">// map�е�key��String���ͣ�value��Integer����</span><br><span class="line">String key = null;</span><br><span class="line">Integer integ = null;</span><br><span class="line">Iterator iter = map.keySet().iterator();</span><br><span class="line">while (iter.hasNext()) &#123;</span><br><span class="line">        // ��ȡkey</span><br><span class="line">    key = (String)iter.next();</span><br><span class="line">        // ����key����ȡvalue</span><br><span class="line">    integ = (Integer)map.get(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="����HashMap��ֵ"><a href="#����HashMap��ֵ" class="headerlink" title="����HashMap��ֵ"></a>����HashMap��ֵ</h4><p>��һ��������value()��ȡHashMap�ġ�ֵ���ļ��ϡ�<br>�ڶ�����ͨ��Iterator��������������һ�����õ��ļ��ϡ�</p>
-<pre><code>// ����map��HashMap����
-// map�е�key��String���ͣ�value��Integer����
+        <h2 id="什么是MAP"><a href="#什么是MAP" class="headerlink" title="什么是MAP"></a>什么是MAP</h2><p>在数组中我们是通过数组下标来对其内容索引的，而在Map中我们通过对象来对对象进行索引，用来索引的对象叫做key，其对应的对象叫做value。<br>Java集合资料：<a href="https://www.cnblogs.com/skywang12345/p/3323085.html" target="_blank" rel="noopener">https://www.cnblogs.com/skywang12345/p/3323085.html</a><br><a id="more"></a></p>
+<h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><p>HashMap是一个散列表，HashMap通过hashcode对其内容进行快速查找；<br>HashMap 的实现不是同步的，这意味着它不是线程安全的。它的key、value都可以为null。此外，HashMap中的映射不是有序的。</p>
+<h3 id="HashMap-的API"><a href="#HashMap-的API" class="headerlink" title="HashMap 的API"></a>HashMap 的API</h3><p> clear()： void<br> clone()：Object<br> containsKey(Object key)：boolean<br>containsValue(Object value)：boolean<br>entrySet()：Set&lt;Entry&lt;K, V&gt;&gt;<br>get(Object key)：V<br> isEmpty()：boolean<br>keySet()：Set<k><br>put(K key, V value)：V<br>putAll(Map&lt;? extends K, ? extends V&gt; map)：void<br>remove(Object key)：V<br> size()：int<br>values()：Collection<v> </v></k></p>
+<h3 id="HashMap遍历方式"><a href="#HashMap遍历方式" class="headerlink" title="HashMap遍历方式"></a>HashMap遍历方式</h3><h4 id="遍历HashMap的键值对"><a href="#遍历HashMap的键值对" class="headerlink" title="遍历HashMap的键值对"></a>遍历HashMap的键值对</h4><p>第一步：根据entrySet()获取HashMap的“键值对”的Set集合。<br>第二步：通过Iterator迭代器遍历“第一步”得到的集合。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 假设map是HashMap对象</span><br><span class="line">// map中的key是String类型，value是Integer类型</span><br><span class="line">Integer integ = null;</span><br><span class="line">Iterator iter = map.entrySet().iterator();</span><br><span class="line">while(iter.hasNext()) &#123;</span><br><span class="line">    Map.Entry entry = (Map.Entry)iter.next();</span><br><span class="line">    // 获取key</span><br><span class="line">    key = (String)entry.getKey();</span><br><span class="line">        // 获取value</span><br><span class="line">    integ = (Integer)entry.getValue();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="遍历HashMap的键"><a href="#遍历HashMap的键" class="headerlink" title="遍历HashMap的键"></a>遍历HashMap的键</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">第一步：根据keySet()获取HashMap的“键”的Set集合。</span><br><span class="line">第二步：通过Iterator迭代器遍历“第一步”得到的集合。</span><br><span class="line"></span><br><span class="line">复制代码</span><br><span class="line">// 假设map是HashMap对象</span><br><span class="line">// map中的key是String类型，value是Integer类型</span><br><span class="line">String key = null;</span><br><span class="line">Integer integ = null;</span><br><span class="line">Iterator iter = map.keySet().iterator();</span><br><span class="line">while (iter.hasNext()) &#123;</span><br><span class="line">        // 获取key</span><br><span class="line">    key = (String)iter.next();</span><br><span class="line">        // 根据key，获取value</span><br><span class="line">    integ = (Integer)map.get(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="遍历HashMap的值"><a href="#遍历HashMap的值" class="headerlink" title="遍历HashMap的值"></a>遍历HashMap的值</h4><p>第一步：根据value()获取HashMap的“值”的集合。<br>第二步：通过Iterator迭代器遍历“第一步”得到的集合。</p>
+<pre><code>// 假设map是HashMap对象
+// map中的key是String类型，value是Integer类型
 Integer value = null;
 Collection c = map.values();
 Iterator iter= c.iterator();
 while (iter.hasNext()) {
     value = (Integer)iter.next();
 }
-</code></pre><h2 id="HashTable"><a href="#HashTable" class="headerlink" title="HashTable"></a>HashTable</h2><p>Hashtable Ҳ��һ��ɢ�б���Hashtable �ĺ�������ͬ���ģ�����ζ�������̰߳�ȫ�ġ�����key��value��������Ϊnull��Hashtable�е�ӳ�䲻������ġ�</p>
+</code></pre><h2 id="HashTable"><a href="#HashTable" class="headerlink" title="HashTable"></a>HashTable</h2><p>Hashtable 也是一个散列表，Hashtable 的函数都是同步的，这意味着它是线程安全的。它的key、value都不可以为null，Hashtable中的映射不是有序的。</p>
 <h2 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h2>
       
     </div>
@@ -396,7 +395,7 @@ while (iter.hasNext()) {
   <p><span>本文标题:</span><a href="/2018/09/06/HashMap/">HashMap</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 KingSoul 的个人博客">KingSoul</a></p>
   <p><span>发布时间:</span>2018年09月06日 - 14:09</p>
-  <p><span>最后更新:</span>2018年09月06日 - 15:09</p>
+  <p><span>最后更新:</span>2018年09月12日 - 15:09</p>
   <p><span>原始链接:</span><a href="/2018/09/06/HashMap/" title="HashMap">ztzhang.cn/2018/09/06/HashMap/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="ztzhang.cn/2018/09/06/HashMap/"  aria-label="复制成功！"></i></span>
   </p>
@@ -426,12 +425,6 @@ while (iter.hasNext()) {
     
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/HashMap/" rel="tag"># HashMap</a>
-          
-        </div>
       
 
       
@@ -535,7 +528,7 @@ while (iter.hasNext()) {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -557,7 +550,7 @@ while (iter.hasNext()) {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -590,7 +583,7 @@ while (iter.hasNext()) {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ʲo��MAP"><span class="nav-number">1.</span> <span class="nav-text">ʲô��MAP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">2.</span> <span class="nav-text">HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap-��API"><span class="nav-number">2.1.</span> <span class="nav-text">HashMap ��API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap������ʽ"><span class="nav-number">2.2.</span> <span class="nav-text">HashMap������ʽ</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#����HashMap�l�ֵ��"><span class="nav-number">2.2.1.</span> <span class="nav-text">����HashMap�ļ�ֵ��</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#����HashMap�l�"><span class="nav-number">2.2.2.</span> <span class="nav-text">����HashMap�ļ�</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#����HashMap��ֵ"><span class="nav-number">2.2.3.</span> <span class="nav-text">����HashMap��ֵ</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashTable"><span class="nav-number">3.</span> <span class="nav-text">HashTable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeMap"><span class="nav-number">4.</span> <span class="nav-text">TreeMap</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是MAP"><span class="nav-number">1.</span> <span class="nav-text">什么是MAP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap"><span class="nav-number">2.</span> <span class="nav-text">HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap-的API"><span class="nav-number">2.1.</span> <span class="nav-text">HashMap 的API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap遍历方式"><span class="nav-number">2.2.</span> <span class="nav-text">HashMap遍历方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历HashMap的键值对"><span class="nav-number">2.2.1.</span> <span class="nav-text">遍历HashMap的键值对</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历HashMap的键"><span class="nav-number">2.2.2.</span> <span class="nav-text">遍历HashMap的键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历HashMap的值"><span class="nav-number">2.2.3.</span> <span class="nav-text">遍历HashMap的值</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashTable"><span class="nav-number">3.</span> <span class="nav-text">HashTable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeMap"><span class="nav-number">4.</span> <span class="nav-text">TreeMap</span></a></li></ol></div>
             
 
           </div>
@@ -624,7 +617,7 @@ while (iter.hasNext()) {
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">28.4k</span>
+    <span title="Site words total count">28.6k</span>
   
 </div>
 
