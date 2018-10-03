@@ -79,14 +79,17 @@
 
 
 
+<meta name="description" content="���������������ͼ�㷨��һ�֣�Ӣ����дΪDFS��Depth First Search.����̼�Ҫ��˵�Ƕ�ÿһ�����ܵķ�֧·�����뵽����������Ϊֹ������ÿ���ڵ�ֻ�ܷ���һ��.�漰�ݹ�ͻ��ݡ�">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DFS">
 <meta property="og:url" content="ztzhang.cn/2018/09/11/DFS/index.html">
 <meta property="og:site_name" content="KingSoul&#39;s Garden">
+<meta property="og:description" content="���������������ͼ�㷨��һ�֣�Ӣ����дΪDFS��Depth First Search.����̼�Ҫ��˵�Ƕ�ÿһ�����ܵķ�֧·�����뵽����������Ϊֹ������ÿ���ڵ�ֻ�ܷ���һ��.�漰�ݹ�ͻ��ݡ�">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-11T06:38:18.156Z">
+<meta property="og:updated_time" content="2018-10-03T09:35:53.426Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DFS">
+<meta name="twitter:description" content="���������������ͼ�㷨��һ�֣�Ӣ����дΪDFS��Depth First Search.����̼�Ҫ��˵�Ƕ�ÿһ�����ܵķ�֧·�����뵽����������Ϊֹ������ÿ���ڵ�ֻ�ܷ���һ��.�漰�ݹ�ͻ��ݡ�">
 
 
 
@@ -320,7 +323,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  750
                 </span>
               
 
@@ -336,7 +339,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  5
                 </span>
               
             </div>
@@ -357,7 +360,10 @@
       
 
       
-        
+        <p>���������������ͼ�㷨��һ�֣�Ӣ����дΪDFS��Depth First Search.����̼�Ҫ��˵�Ƕ�ÿһ�����ܵķ�֧·�����뵽����������Ϊֹ������ÿ���ڵ�ֻ�ܷ���һ��.�漰�ݹ�ͻ��ݡ�<br><a id="more"></a></p>
+<h3 id="o����"><a href="#o����" class="headerlink" title="ȫ����"></a>ȫ����</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class FullPermutation &#123;</span><br><span class="line">    private static String [] result;//���ȫ���еĽ��</span><br><span class="line">    private static boolean [] visit;//����һ���������</span><br><span class="line">    private static int n; //ȫ���еĳ���</span><br><span class="line">    private static String data[];</span><br><span class="line"></span><br><span class="line">    private static void dfs(int count)&#123;</span><br><span class="line">        if(count==n)&#123;</span><br><span class="line">            System.out.println(Arrays.toString(result));</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        //ÿһ�α�������n��ѡ��</span><br><span class="line">        for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">            if(!visit[i])&#123;</span><br><span class="line">                visit[i] = true;</span><br><span class="line">                result[count] = data[i];</span><br><span class="line">                dfs(count+1); </span><br><span class="line">               //����</span><br><span class="line">                visit[i] = false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        n = 4;//�Գ���Ϊ5����</span><br><span class="line">        result = new String[n];</span><br><span class="line">        visit = new boolean[n];</span><br><span class="line">        Arrays.fill(visit,false);</span><br><span class="line">        data=new String[]&#123;&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;&#125;;</span><br><span class="line">        dfs(0);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="�Թ�����"><a href="#�Թ�����" class="headerlink" title="�Թ�����"></a>�Թ�����</h3><p>����һ����ά����N*M������2&lt;=N&lt;=10;2&lt;=M&lt;=10������5 �� 5��������ʾ��<br>int maze[5][5] = {<br> 0, 1, 0, 0, 0,<br> 0, 1, 0, 1, 0,<br>0, 0, 0, 0, 0,<br>0, 1, 1, 1, 0,<br> 0, 0, 0, 1, 0,<br>};<br>����ʾһ���Թ������е�1��ʾǽ�ڣ�0��ʾ�����ߵ�·��ֻ�ܺ����߻������ߣ�����б���ߣ�Ҫ�������ҳ������Ͻǵ����½ǵ����·�ߡ���ڵ�Ϊ[0,0],�ȵ�һ�ո��ǿ����ߵ�·��<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">public class Main&#123;</span><br><span class="line">        </span><br><span class="line">    public static void main(String[] arg)&#123;</span><br><span class="line">        Scanner s=new Scanner(System.in);</span><br><span class="line">        while(s.hasNext())&#123;</span><br><span class="line">            String q=s.nextLine();</span><br><span class="line">            String[] q1=q.split(&quot; &quot;);</span><br><span class="line">            int n=Integer.valueOf(q1[0]);</span><br><span class="line">            int m=Integer.valueOf(q1[1]);</span><br><span class="line">            //�õ���������</span><br><span class="line">            int[][] arr=new int[n][m];</span><br><span class="line">            //��ʼ���������</span><br><span class="line">            boolean [][] b = new boolean[n][m];</span><br><span class="line">            //��Ϊ���½ǵľ���ֵһ����0�����ڣ�,���Ա�Ǹĵ�Ϊtrue��ʾ����ͨ��</span><br><span class="line">            b[n-1][m-1]=true;</span><br><span class="line">            for (int i=0;i&lt;n;i++)&#123;</span><br><span class="line">                String w=s.nextLine();</span><br><span class="line">                String[] r=w.split(&quot; &quot;);</span><br><span class="line">                for (int j=0;j&lt;r.length;j++)</span><br><span class="line">                    arr[i][j]=Integer.valueOf(r[j]);</span><br><span class="line">            &#125;</span><br><span class="line">              </span><br><span class="line">            haspath(arr, b, 0, 0, n, m);</span><br><span class="line">            for (int i = 0; i &lt; b.length; i++) &#123;</span><br><span class="line">                for (int j = 0; j &lt; b[0].length; j++) &#123;</span><br><span class="line">                    if (b[i][j]) &#123;</span><br><span class="line">                        System.out.println(&quot;(&quot;+i+&quot;,&quot;+j+&quot;)&quot;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">              </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //ͨ�������������������ʼ����b[i][j]==true��������ͨ��</span><br><span class="line">	public static boolean haspath(int[][] arr,boolean [][] b, int n,int m,int nlength,int mlength) &#123;</span><br><span class="line">	        boolean flag = false;</span><br><span class="line">	        if (n==nlength -2&amp;&amp;m ==mlength-1&amp;&amp;arr[n][m]==0) &#123;</span><br><span class="line">	            b[n][m]=true;</span><br><span class="line">	            return true;</span><br><span class="line">	        &#125;</span><br><span class="line">	        if (m==mlength -2&amp;&amp;n ==nlength-1&amp;&amp;arr[n][m]==0) &#123;</span><br><span class="line">	            b[n][m]=true;</span><br><span class="line">	            return true;</span><br><span class="line">	        &#125;</span><br><span class="line">	        if (m&gt;=mlength||n&gt;=nlength) &#123;</span><br><span class="line">	            return false;</span><br><span class="line">	        &#125; </span><br><span class="line">	        if (arr[n][m]==0&amp;&amp;!b[n][m]) &#123;</span><br><span class="line">	            b[n][m] = true;</span><br><span class="line">	            flag = haspath(arr, b, n+1, m, nlength, mlength)||haspath(arr, b, n, m+1, nlength, mlength);</span><br><span class="line">	        &#125;</span><br><span class="line">	        if (flag) &#123;</span><br><span class="line">	            return flag;</span><br><span class="line">	        &#125;else &#123;</span><br><span class="line">	            b[n][m] = false;</span><br><span class="line">	            return false;</span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main&#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] arg)&#123;</span><br><span class="line">        Scanner s=new Scanner(System.in);</span><br><span class="line">        while(s.hasNext())&#123;</span><br><span class="line">            String q=s.nextLine();</span><br><span class="line">            String[] q1=q.split(&quot; &quot;);</span><br><span class="line">            int n=Integer.valueOf(q1[0]);</span><br><span class="line">            int m=Integer.valueOf(q1[1]);</span><br><span class="line">            //�õ���������</span><br><span class="line">            int[][] arr=new int[n][m];</span><br><span class="line">            //��ʼ���������</span><br><span class="line">            boolean [][] b = new boolean[n][m];</span><br><span class="line">            //��Ϊ���½ǵľ���ֵһ����0�����ڣ�,���Ա�Ǹĵ�Ϊtrue��ʾ����ͨ��</span><br><span class="line">            b[n-1][m-1]=true;</span><br><span class="line">            for (int i=0;i&lt;n;i++)&#123;</span><br><span class="line">                String w=s.nextLine();</span><br><span class="line">                String[] r=w.split(&quot; &quot;);</span><br><span class="line">                for (int j=0;j&lt;r.length;j++)</span><br><span class="line">                    arr[i][j]=Integer.valueOf(r[j]);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            hasPath(arr, b, n, m,0, 0 );</span><br><span class="line">            for (int i = 0; i &lt; b.length; i++) &#123;</span><br><span class="line">                for (int j = 0; j &lt; b[0].length; j++) &#123;</span><br><span class="line">                    if (b[i][j]) &#123;</span><br><span class="line">                        System.out.println(&quot;(&quot;+i+&quot;,&quot;+j+&quot;)&quot;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //ͨ�������������������ʼ����b[i][j]==true��������ͨ��</span><br><span class="line">    public static void hasPath(int[][]matrix,boolean[][]b,int rows,int cols,int i,int j)&#123;</span><br><span class="line">        if(matrix==null||rows&lt;1||cols&lt;1) return ;</span><br><span class="line">        if((i==rows-2&amp;&amp;j==cols-1&amp;&amp;matrix[i][j]==0)||i==rows-1&amp;&amp;j==cols-2&amp;&amp;matrix[i][j]==0)&#123;</span><br><span class="line">            b[i][j]=true;</span><br><span class="line">            return ;</span><br><span class="line">        &#125;</span><br><span class="line">        if(i&gt;=rows||j&gt;=cols)&#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        if(matrix[i][j]==0&amp;&amp;!b[i][j])&#123;</span><br><span class="line">            b[i][j]=true;</span><br><span class="line">            hasPath(matrix,b,rows,cols,i+1,j);</span><br><span class="line">            hasPath(matrix,b,rows,cols,i,j+1);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -376,7 +382,7 @@
   <p><span>本文标题:</span><a href="/2018/09/11/DFS/">DFS</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 KingSoul 的个人博客">KingSoul</a></p>
   <p><span>发布时间:</span>2018年09月11日 - 14:09</p>
-  <p><span>最后更新:</span>2018年09月11日 - 14:09</p>
+  <p><span>最后更新:</span>2018年10月03日 - 17:10</p>
   <p><span>原始链接:</span><a href="/2018/09/11/DFS/" title="DFS">ztzhang.cn/2018/09/11/DFS/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="ztzhang.cn/2018/09/11/DFS/"  aria-label="复制成功！"></i></span>
   </p>
@@ -480,8 +486,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -500,7 +515,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -546,6 +561,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#o����"><span class="nav-number">1.</span> <span class="nav-text">ȫ����</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#�Թ�����"><span class="nav-number">2.</span> <span class="nav-text">�Թ�����</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -573,7 +604,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">30.1k</span>
+    <span title="Site words total count">32.4k</span>
   
 </div>
 
