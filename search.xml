@@ -3,11 +3,11 @@
   
     
     <entry>
-      <title></title>
+      <title>post/get</title>
       <link href="/2018/11/16/post-get/"/>
       <url>/2018/11/16/post-get/</url>
       
-        <content type="html"><![CDATA[<p>��---<br><br>layout: http<br><br>title: post/get<br><br>date: 2018-11-16 22:51:39<br><br>tags:<br><br>---<br><br>&lt;!--more--&gt;<br><br># GET �e�l<br><br>�g�W[&amp;{2N�<br>T�y/&lt;P�[    �/f(W GET ��Bl�v URL -N�S��v�<br><br><br><br>GET /test/demo<em>form.asp?name1=value1&amp;name2=value2 HTTP/1.1<br><br>    gsQ GET ��Bl�vvQ�NN�N�lʑ�<br><br><br><br>GET ��Bl�S��X[<br><br>GET ��Bl�OYu(WOmȉhV�S�S��U</em>-N<br><br>GET ��Bl�S��6eυ:NfN~{<br><br>GET ��Bl<br>N�^(WYtOeapenc�eO(u<br><br>GET ��Bl    g��^P�6R�<br>N����Ǐ256*NW[&amp;{<br><br>GET ��Bl�S�^S_(u�N�S�Vpenc<br><br><br><br># POST <br><br>�g�W[&amp;{2N�<br>T�y/&lt;P�[    �/f(W POST ��Bl�v HTTP �mo<code>;NSO-N�S��v�POST /test/demo_form.asp HTTP/1.1Host: w3schools.comname1=value1&amp;name2=value2# ;</code>�~<br><br>post8^(ueg�c�Nh�USpenc��O�Y<br>N O(u7bD��e0<br>N O�e�N0</p>]]></content>
+        <content type="html"><![CDATA[<a id="more"></a><h1 id="GET-方法"><a href="#GET-方法" class="headerlink" title="GET 方法"></a>GET 方法</h1><p>查询字符串（名称/值对）是在 GET 请求的 URL 中发送的：</p><p>GET /test/demo_form.asp?name1=value1&amp;name2=value2 HTTP/1.1<br>有关 GET 请求的其他一些注释：</p><p>GET 请求可被缓存<br>GET 请求保留在浏览器历史记录中<br>GET 请求可被收藏为书签<br>GET 请求不应在处理敏感数据时使用<br>GET 请求有长度限制，不能超过256个字符<br>GET 请求只应当用于取回数据</p><h1 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h1><p>查询字符串（名称/值对）是在 POST 请求的 HTTP 消息主体中发送的：</p><p>POST /test/demo_form.asp HTTP/1.1<br>Host: w3schools.com<br>name1=value1&amp;name2=value2</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>post常用来提交表单数据，例如上传用户资料。上传文件。</p>]]></content>
       
       
       
