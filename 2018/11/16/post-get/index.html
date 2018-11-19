@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="https://www.cnblogs.com/huststl/p/8664608.html">
+<meta name="description" content="GET ������ѯ�ַ���������/ֵ�ԣ����� GET ����� URL �з��͵ģ� GET /test/demo_form.asp?name1=value1&amp;amp;name2=value2 HTTP/1.1�й� GET ���������һЩע�ͣ� GET ����ɱ�����GET ���������������ʷ��¼��GET ����ɱ��ղ�Ϊ��ǩGET">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动态规划算法">
-<meta property="og:url" content="ztzhang.cn/2018/09/12/动态规划算法/index.html">
+<meta property="og:title" content="post&#x2F;get">
+<meta property="og:url" content="ztzhang.cn/2018/11/16/post-get/index.html">
 <meta property="og:site_name" content="KingSoul&#39;s Garden">
-<meta property="og:description" content="https://www.cnblogs.com/huststl/p/8664608.html">
+<meta property="og:description" content="GET ������ѯ�ַ���������/ֵ�ԣ����� GET ����� URL �з��͵ģ� GET /test/demo_form.asp?name1=value1&amp;amp;name2=value2 HTTP/1.1�й� GET ���������һЩע�ͣ� GET ����ɱ�����GET ���������������ʷ��¼��GET ����ɱ��ղ�Ϊ��ǩGET">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-12T15:21:18.824Z">
+<meta property="og:updated_time" content="2018-11-16T14:58:49.944Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="动态规划算法">
-<meta name="twitter:description" content="https://www.cnblogs.com/huststl/p/8664608.html">
+<meta name="twitter:title" content="post&#x2F;get">
+<meta name="twitter:description" content="GET ������ѯ�ַ���������/ֵ�ԣ����� GET ����� URL �з��͵ģ� GET /test/demo_form.asp?name1=value1&amp;amp;name2=value2 HTTP/1.1�й� GET ���������һЩע�ͣ� GET ����ɱ�����GET ���������������ʷ��¼��GET ����ɱ��ղ�Ϊ��ǩGET">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="ztzhang.cn/2018/09/12/动态规划算法/"/>
+  <link rel="canonical" href="ztzhang.cn/2018/11/16/post-get/"/>
 
 
 
 
 
-  <title>动态规划算法 | KingSoul's Garden</title>
+  <title>post/get | KingSoul's Garden</title>
   
 
 
@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="ztzhang.cn/2018/09/12/动态规划算法/">
+    <link itemprop="mainEntityOfPage" href="ztzhang.cn/2018/11/16/post-get/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="KingSoul">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">动态规划算法</h1>
+          <h1 class="post-title" itemprop="name headline">post/get</h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-12T21:55:21+08:00">
-                2018-09-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-16T22:51:39+08:00">
+                2018-11-16
               </time>
             
 
@@ -323,7 +323,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  995
+                  50
                 </span>
               
 
@@ -339,7 +339,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  1
                 </span>
               
             </div>
@@ -360,13 +360,13 @@
       
 
       
-        <p><a href="https://www.cnblogs.com/huststl/p/8664608.html" target="_blank" rel="noopener">https://www.cnblogs.com/huststl/p/8664608.html</a><br><a id="more"></a></p>
-<h2 id="何为DP？"><a href="#何为DP？" class="headerlink" title="何为DP？"></a>何为DP？</h2><p>动态规划(Dynamic Programming)是运筹学的一个分支，是求解决策过程(decision process)最优化的数学方法。20世纪50年代初美国数学家R.E.Bellman等人在研究多阶段决策过程(multistep decision process)的优化问题时，提出了著名的最优化原理(principle of optimality)，把多阶段过程转化为一系列单阶段问题，利用各阶段之间的关系，逐个求解，创立了解决这类过程优化问题的新方法——动态规划。动态规划算法通常基于一个递推公式及一个或多个初始状态。当前子问题的解将由上一次子问题的解推出。使用动态规划来解题只需要多项式时间复杂度，因此它比回溯法、暴力法等要快许多。</p>
-<h2 id="DP思想及概念"><a href="#DP思想及概念" class="headerlink" title="DP思想及概念"></a>DP思想及概念</h2><p>思想：首先，我们要找到某个状态的最优解，然后在它的帮助下，找到下一个状态的最优解。<br>动态规划里非常重要的两个概念：状态和状态转移方程。</p>
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h3 id="用最少硬币数凑齐n元"><a href="#用最少硬币数凑齐n元" class="headerlink" title="用最少硬币数凑齐n元"></a>用最少硬币数凑齐n元</h3><p>问题描述：<br>假设有面值为1元、3元和5元的硬币若干枚，如何用最少的硬币凑够11元？</p>
-<p>思路：<br>我们用d(i)=j来表示凑够i元最少需要j个硬币，则易得d(0)=0;<br>当i=1时，只有面值为1元的硬币可用，因此我们拿起一个面值为1的硬币，接下来只需要凑够1-1元即可，所以，d(1)=1+d(1-1)=d(0)+1=1。<br>当i=2时，仍然只有面值为1的硬币可用，于是我们拿起一个面值为1的硬币，接下来我只需要再凑够2-1=1元即可，所以d(2)=1+d(2-1)=d(1)+1=2;<br>当i=3时，我们能用的硬币就有两种了：1元的和3元的( 5元的仍然没用，因为你需要凑的数目是3元！)。既然能用的硬币有两种，我们就有两种方案。如果我们拿了一个1元的硬币。则d(3)=d(3-1)+1=d(2)+1=2+1=3；第二种方案是我拿起一个3元的硬币，则d(3)=d(3-3)+1=d(0)+1=0+1=1. 这个方案说的是，我拿1个3元的硬币。这两种方案哪种更优呢？具体是这样得到的：d(3)=min{d(3-1)+1, d(3-3)+1}。</p>
-<p>最后，我们堆我们之前的分析做一个抽象的处理：d(i)=min{ d(i-vj)+1 }，其中vj表示第j个硬币的面值；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public class DP &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        int[] cent=&#123;1,3,5&#125;;</span><br><span class="line">        int sum=11;</span><br><span class="line">        int d[]=new int[12];</span><br><span class="line">        //初始化d</span><br><span class="line">        //我们假设存在1元的硬币那么i元最多只需要i枚1元硬币，当然最好设置d[i]等于无穷大  </span><br><span class="line">        for(int i = 1; i &lt;= sum; i++) d[i] = i;</span><br><span class="line">        for(int i=1;i&lt;=sum;i++)&#123;</span><br><span class="line">            for(int j=0;j&lt;3;j++)&#123;</span><br><span class="line">                if(i&gt;cent[j]&amp;&amp; d[i]&gt;(d[i-cent[j]]+1))&#123;</span><br><span class="line">                    d[i]=d[i-cent[j]]+1;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(d[11]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//API</span><br><span class="line"> public static int dp(int cent[],int expectedNum)&#123;</span><br><span class="line">        int d[]=new int[expectedNum+1];</span><br><span class="line">        for(int i = 1; i &lt;= expectedNum; i++) d[i] = i;</span><br><span class="line">        for(int i=1;i&lt;=expectedNum;i++)&#123;</span><br><span class="line">            for(int j=0;j&lt;cent.length;j++)&#123;</span><br><span class="line">                if(i&gt;cent[j]&amp;&amp; d[i]&gt;(d[i-cent[j]]+1))&#123;</span><br><span class="line">                    d[i]=d[i-cent[j]]+1;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return d[expectedNum];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="连续子数组的最大和"><a href="#连续子数组的最大和" class="headerlink" title="连续子数组的最大和"></a>连续子数组的最大和</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static int maxSubSum1(int []a)&#123;</span><br><span class="line">       //maxSum记录循环到i个数字这段距离内保存到的最大的数</span><br><span class="line">       //nowSum记录循环到i时此时的最大数</span><br><span class="line">       int maxSum=0; int nowSum=0;</span><br><span class="line">       for(int i=0;i&lt;a.length;i++)&#123;</span><br><span class="line">           nowSum=nowSum+a[i];</span><br><span class="line">           if(nowSum&gt;maxSum)&#123;//更新最大子段和</span><br><span class="line">               maxSum=nowSum;</span><br><span class="line">           &#125;</span><br><span class="line">           if(nowSum&lt;0)&#123;//当当前累加和为负数时舍弃，重置为0</span><br><span class="line">               nowSum=0;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       return maxSum;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+        <a id="more"></a>
+<h1 id="GET-����"><a href="#GET-����" class="headerlink" title="GET ����"></a>GET ����</h1><p>��ѯ�ַ���������/ֵ�ԣ����� GET ����� URL �з��͵ģ�</p>
+<p>GET /test/demo_form.asp?name1=value1&amp;name2=value2 HTTP/1.1<br>�й� GET ���������һЩע�ͣ�</p>
+<p>GET ����ɱ�����<br>GET ���������������ʷ��¼��<br>GET ����ɱ��ղ�Ϊ��ǩ<br>GET ����Ӧ�ڴ�����������ʱʹ��<br>GET �����г������ƣ����ܳ���256���ַ�<br>GET ����ֻӦ������ȡ������</p>
+<h1 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h1><p>��ѯ�ַ���������/ֵ�ԣ����� POST ����� HTTP ��Ϣ�����з��͵ģ�</p>
+<p>POST /test/demo_form.asp HTTP/1.1<br>Host: w3schools.com<br>name1=value1&amp;name2=value2</p>
+<h1 id="�ܽ�"><a href="#�ܽ�" class="headerlink" title="�ܽ�"></a>�ܽ�</h1><p>post�������ύ�������ݣ������ϴ��û����ϡ��ϴ��ļ���</p>
 
       
     </div>
@@ -377,35 +377,6 @@
     <div>
       
         
-<div class="my_post_copyright">
-  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-  
-  <!-- JS库 sweetalert 可修改路径 -->
-  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/09/12/动态规划算法/">动态规划算法</a></p>
-  <p><span>文章作者:</span><a href="/" title="访问 KingSoul 的个人博客">KingSoul</a></p>
-  <p><span>发布时间:</span>2018年09月12日 - 21:09</p>
-  <p><span>最后更新:</span>2018年09月12日 - 23:09</p>
-  <p><span>原始链接:</span><a href="/2018/09/12/动态规划算法/" title="动态规划算法">ztzhang.cn/2018/09/12/动态规划算法/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="ztzhang.cn/2018/09/12/动态规划算法/"  aria-label="复制成功！"></i></span>
-  </p>
-  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
-</div>
-<script> 
-    var clipboard = new Clipboard('.fa-clipboard');
-    $(".fa-clipboard").click(function(){
-      clipboard.on('success', function(){
-        swal({   
-          title: "",   
-          text: '复制成功',
-          icon: "success", 
-          showConfirmButton: true
-          });
-    });
-    });  
-</script>
-
 
       
     </div>
@@ -426,8 +397,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/12/面试题42：连续子数组的最大和/" rel="next" title="面试题42：连续子数组的最大和">
-                <i class="fa fa-chevron-left"></i> 面试题42：连续子数组的最大和
+              <a href="/2018/10/14/数据库/" rel="next" title="数据库">
+                <i class="fa fa-chevron-left"></i> 数据库
               </a>
             
           </div>
@@ -435,10 +406,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/16/最长上升子序列/" rel="prev" title="最长上升子序列">
-                最长上升子序列 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -519,7 +486,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -574,7 +541,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#何为DP？"><span class="nav-number">1.</span> <span class="nav-text">何为DP？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DP思想及概念"><span class="nav-number">2.</span> <span class="nav-text">DP思想及概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-number">3.</span> <span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用最少硬币数凑齐n元"><span class="nav-number">3.1.</span> <span class="nav-text">用最少硬币数凑齐n元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连续子数组的最大和"><span class="nav-number">3.2.</span> <span class="nav-text">连续子数组的最大和</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GET-����"><span class="nav-number">1.</span> <span class="nav-text">GET ����</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#POST"><span class="nav-number">2.</span> <span class="nav-text">POST</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#�ܽ�"><span class="nav-number">3.</span> <span class="nav-text">�ܽ�</span></a></li></ol></div>
             
 
           </div>
@@ -608,7 +575,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">32.9k</span>
+    <span title="Site words total count">34.6k</span>
   
 </div>
 
