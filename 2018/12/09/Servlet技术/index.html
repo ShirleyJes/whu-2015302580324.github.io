@@ -87,7 +87,7 @@
 <meta property="og:description" content="Java Web 应用程序中所有的请求-相应都是由Servlet来完成的，Servlet是Java Web的核心。Servlet没有main之类的方法，tomcat是通过调用Servlet的某些方法来完成的。Java Servlet是一个基于Java技术的Web组件，运行在服务器端，由Servlet容器（Web服务器或应用程序服务器的一部分）所管理，用于生成动态的内容。Servlet是平台独立的J">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="/2018/12/09/Servlet技术/用户请求过程.jpg">
-<meta property="og:updated_time" content="2018-12-09T11:00:40.694Z">
+<meta property="og:updated_time" content="2018-12-10T06:36:27.559Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Servlet技术">
 <meta name="twitter:description" content="Java Web 应用程序中所有的请求-相应都是由Servlet来完成的，Servlet是Java Web的核心。Servlet没有main之类的方法，tomcat是通过调用Servlet的某些方法来完成的。Java Servlet是一个基于Java技术的Web组件，运行在服务器端，由Servlet容器（Web服务器或应用程序服务器的一部分）所管理，用于生成动态的内容。Servlet是平台独立的J">
@@ -400,7 +400,9 @@
       
 
       
-        <p>Java Web 应用程序中所有的请求-相应都是由Servlet来完成的，Servlet是Java Web的核心。Servlet没有main之类的方法，tomcat是通过调用Servlet的某些方法来完成的。Java Servlet是一个基于Java技术的Web组件，运行在服务器端，由Servlet容器（Web服务器或应用程序服务器的一部分）所管理，用于生成动态的内容。Servlet是平台独立的Java类，编写一个Servlet，实际上就是按照Servlet规范编写一个Java类。<br><a id="more"></a><br>用户访问页面过程：</p>
+        <p>Java Web 应用程序中所有的请求-相应都是由Servlet来完成的，Servlet是Java Web的核心。Servlet没有main之类的方法，tomcat是通过调用Servlet的某些方法来完成的。Java Servlet是一个基于Java技术的Web组件，运行在服务器端，由Servlet容器（Web服务器或应用程序服务器的一部分）所管理，用于生成动态的内容。Servlet是平台独立的Java类，编写一个Servlet，实际上就是按照Servlet规范编写一个Java类。</p>
+<p>注解会影响到服务器的启动速度，因为服务器在启动的时候就会在WEB-INF/class下的所有class文件与WEB-INF/lib下的所有jar包以检查哪些类使用了注解；如果没有使用任何注解，可以在<web-app>的metadata-complete属性为true；</web-app></p>
+<p>Web服务器收到客户端的http请求，会针对每一次请求，分别创建一个用于代表请求的request对象、和代表响应的response对象。<br><a id="more"></a><br>用户访问页面过程：</p>
 <ol>
 <li>用户通过点击链接或者直接输入URL访问Servlet。</li>
 <li>Web服务器接收到请求后，交给Servlet容器。</li>
@@ -432,9 +434,11 @@
 </code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">## 上传文件</span><br><span class="line">相比FTP文件上传速度慢，但是使用方便而且不需要客户端，只需要一个浏览器就可以；</span><br><span class="line">文件上传使用的是post方式，但是还要设置form的enctype的属性为multipart/form-data,由于上传的文件会比较大，因此要设定该参数指定浏览器使用二进制上传。如果不设置，enctype属性默认为application/x-www-form-urlencoded，浏览器将使用ascll向服务器发送数据，导致文件上传失败。同时，还要使用文件域（ &lt; input type=&quot;file&quot;/&gt;)</span><br></pre></td></tr></table></figure></p>
 <html><br><head><br><title>上传文件</title><br></head><br><body><br><form action="servlet/UploadServlet" method="post" enctype="multipart/form-data"><br><div align="center"><br><br>    <fieldset style="width:90%"><br>        <legend>上传文件</legend><br><br>        <div class="line"><br>            <div align="left">上传文件</div><br>            <div align="left"><br>                <input type="file" name="file"><br>            </div><br>        </div><br>        <input type="submit" value=" 上传文件 "><br>    </fieldset><br></div><br></form><br></body><br></html>
 
-<p><code>`</code><br>由于上传文件时浏览器是使用二进制来发送数据，因此Servlet不能简单的使用request.getparameter(“name”)来获取其内容，而是根据HTTP协议的规定的格式解析浏览器提交的request。<br>常用的解析二进制流的类库有很多，如Apache Commons Fileupload</p>
-<h2 id="上传进度条"><a href="#上传进度条" class="headerlink" title="上传进度条"></a>上传进度条</h2><p>使用的技术有Ajax，Session等</p>
-<h1 id="Servlet的生命周期"><a href="#Servlet的生命周期" class="headerlink" title="Servlet的生命周期"></a>Servlet的生命周期</h1><p>Servlet的生命周期由web服务器维护。<br>Servlet会在服务器启动或者第一次请求该Servlet的时候开始生命周期，在服务器结束的时候结束生命周期。无论请求多少次Servlet，最多只有一个Servlet实例。多个客户端并发请求Servlet时，服务器会启动多个线程分别执行该Servlet的service()。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">由于上传文件时浏览器是使用二进制来发送数据，因此Servlet不能简单的使用request.getparameter(&quot;name&quot;)来获取其内容，而是根据HTTP协议的规定的格式解析浏览器提交的request。</span><br><span class="line">常用的解析二进制流的类库有很多，如Apache Commons Fileupload</span><br><span class="line"></span><br><span class="line">## 上传进度条</span><br><span class="line">使用的技术有Ajax，Session等</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Servlet的生命周期</span><br><span class="line">Servlet的生命周期由web服务器维护。</span><br><span class="line">Servlet会在服务器启动或者第一次请求该Servlet的时候开始生命周期，在服务器结束的时候结束生命周期。无论请求多少次Servlet，最多只有一个Servlet实例。多个客户端并发请求Servlet时，服务器会启动多个线程分别执行该Servlet的service()。</span><br></pre></td></tr></table></figure>
+<p>servlet的destroy()和init()只会被服务器执行一次，service()在每次客户端请求该Servlet时都会执行。因此可以把Servlet每次执行都需要的常量都或者从web.xml中拿到的常量写在init()中；从而避免每次都从doGet()或者doPost()中读取<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># Servlet之间的跳转</span><br><span class="line">程序的模块化：一个Servlet用于接收用户数据，然后跳转到另一个Servlet用于读取数据库进行业务操作，然后跳转到另一个Servlet用于显示结果。</span><br><span class="line">## 转向（forward）</span><br></pre></td></tr></table></figure></p>
+<p>通过RequestDispatcher对象的 forward()实现，<br>request.setAttribute(“date”,new Date());//用于数据在Servlet之间的传递，这个动作要在执行forward()之前完成<br>RequestDispatcher dispatcher = request.getRequestDispatcher(“/servlet/LifeCycleServlet”);//参数是要跳转的目标Servlet/jsp页面/文件<br>dispatcher.forward(request, response);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">使用forward的形式跳转Servlet时，浏览器的地址栏还是跳转前的地址，因为跳转时在服务器端实现的，浏览器并不知道跳转动作。</span><br><span class="line">在执行forward()的时候不能向客户端有任何的输出，否则会抛出IllegalState-Exception；</span><br><span class="line"></span><br><span class="line">## 重定向（redirect）</span><br><span class="line">利用服务器返回的状态码实现。服务器端(通过HttpServletResponse对象的setStatus(int statuss)方法设置状态码；</span><br><span class="line">* 1XX :</span><br><span class="line">* 2XX:</span><br><span class="line">* 3XX: 重定向状态码，301,302表示资源已经不存在或者是换了地址，客户端要重新定位到新的资源，服务器响应中会附带这个新的资源地址；</span><br><span class="line">  + 301：永久性重定向</span><br><span class="line">  + 302：临时性重定向</span><br><span class="line">* 4XX: 请求错误 </span><br><span class="line">	+ 401：没有权限访问</span><br><span class="line">	+ 404：资源不存在</span><br><span class="line">	+ 405： 访问方式错误（如服务器只接受get/post访问但是客户端却以delete方式访问）</span><br><span class="line">* 5XX: 服务器错误</span><br><span class="line"> + 500：程序出现异常而中途停止</span><br><span class="line"> + 504：超时</span><br><span class="line"> + 505：服务器不支持请求中所用的 HTTP 协议版本。</span><br><span class="line"></span><br><span class="line">使用redirect跳转时，跳转时在客户端实现的，也就是说，客户端向服务器发送了两次请求，第一次得到重定向状态码和地址，第二次访问真实地址；</span><br><span class="line">## 自动刷新(refresh)</span><br><span class="line">可以实现一段时间自动的跳转到另一个页面，还可以实现一段时间之后自动刷新本页面，实现方式是利用response对象的setHeader()；</span><br></pre></td></tr></table></figure></p>
+<p>response.setHeader(“Refresh”,”1000;URL=XXX”);<br>//1000是时间，单位是毫秒。URL是要跳转的路径<br><code>`</code><br>常用于实时显示股市走势，或者定时检查是否有新的邮件到达；<br>如果把时间设为0，就是重定向；</p>
+<h1 id="Servlet与线程安全"><a href="#Servlet与线程安全" class="headerlink" title="Servlet与线程安全"></a>Servlet与线程安全</h1><p>因为Servlet只有一个实例，多个用户请求一个、Servlet时Tomcat会派生多个线程执行Servlet的代码，如果设计不当可能会出现线程不安全的问题；<br>多线程的并发读写Servlet属性会导致数据不同步，但是如果只是并发地读取属性而不写入就不会出现数据不同步，因此，、Servlet里面的只读属性最好定义为final；</p>
 
       
     </div>
@@ -454,7 +458,7 @@
   <p><span>本文标题:</span><a href="/2018/12/09/Servlet技术/">Servlet技术</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 KingSoul 的个人博客">KingSoul</a></p>
   <p><span>发布时间:</span>2018年12月09日 - 15:12</p>
-  <p><span>最后更新:</span>2018年12月09日 - 19:12</p>
+  <p><span>最后更新:</span>2018年12月10日 - 14:12</p>
   <p><span>原始链接:</span><a href="/2018/12/09/Servlet技术/" title="Servlet技术">ztzhang.cn/2018/12/09/Servlet技术/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="ztzhang.cn/2018/12/09/Servlet技术/"  aria-label="复制成功！"></i></span>
   </p>
@@ -503,6 +507,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/10/会话跟踪/" rel="prev" title="会话跟踪">
+                会话跟踪 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -583,7 +591,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -638,7 +646,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Servlet类的使用"><span class="nav-number">1.</span> <span class="nav-text">Servlet类的使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web-xml内的参数的读取"><span class="nav-number">2.</span> <span class="nav-text">web.xml内的参数的读取</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化参数（init-param）"><span class="nav-number">2.1.</span> <span class="nav-text">初始化参数（init-param）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上下文参数（context-param）"><span class="nav-number">2.2.</span> <span class="nav-text">上下文参数（context-param）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资源注射（-Resource"><span class="nav-number">2.3.</span> <span class="nav-text">资源注射（@Resource)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JNDI（不重要）"><span class="nav-number">2.4.</span> <span class="nav-text">JNDI（不重要）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注射数据源"><span class="nav-number">2.5.</span> <span class="nav-text">注射数据源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#提交表单信息"><span class="nav-number">3.</span> <span class="nav-text">提交表单信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Get方式"><span class="nav-number">3.1.</span> <span class="nav-text">Get方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Post方式"><span class="nav-number">3.2.</span> <span class="nav-text">Post方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传进度条"><span class="nav-number">3.3.</span> <span class="nav-text">上传进度条</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Servlet的生命周期"><span class="nav-number">4.</span> <span class="nav-text">Servlet的生命周期</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Servlet类的使用"><span class="nav-number">1.</span> <span class="nav-text">Servlet类的使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web-xml内的参数的读取"><span class="nav-number">2.</span> <span class="nav-text">web.xml内的参数的读取</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化参数（init-param）"><span class="nav-number">2.1.</span> <span class="nav-text">初始化参数（init-param）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上下文参数（context-param）"><span class="nav-number">2.2.</span> <span class="nav-text">上下文参数（context-param）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资源注射（-Resource"><span class="nav-number">2.3.</span> <span class="nav-text">资源注射（@Resource)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JNDI（不重要）"><span class="nav-number">2.4.</span> <span class="nav-text">JNDI（不重要）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注射数据源"><span class="nav-number">2.5.</span> <span class="nav-text">注射数据源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#提交表单信息"><span class="nav-number">3.</span> <span class="nav-text">提交表单信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Get方式"><span class="nav-number">3.1.</span> <span class="nav-text">Get方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Post方式"><span class="nav-number">3.2.</span> <span class="nav-text">Post方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Servlet与线程安全"><span class="nav-number">4.</span> <span class="nav-text">Servlet与线程安全</span></a></li></ol></div>
             
 
           </div>
@@ -672,7 +680,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">34.7k</span>
+    <span title="Site words total count">36.3k</span>
   
 </div>
 
